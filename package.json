@@ -2,6 +2,10 @@
   "name": "crm",
   "version": "0.0.1",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oltionzefi/crm.git"
+  },
   "scripts": {
     "ng": "ng",
     "nx": "nx",
@@ -74,15 +78,34 @@
     "cypress": "3.4.1",
     "dotenv": "6.2.0",
     "eslint": "6.1.0",
+    "husky": "^4.2.1",
     "jest": "24.1.0",
     "jest-preset-angular": "7.0.0",
     "lerna": "^3.20.2",
     "lerna-changelog": "^1.0.0",
     "prettier": "1.16.4",
+    "pretty-quick": "^2.0.1",
     "release-it": "^12.4.3",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "^3.7.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "ng test --code-coverage"
+    }
+  },
+  "changelog": {
+    "labels": {
+      "feature": "New Feature",
+      "bug": "Bug Fix",
+      "breaking": "Breaking Change",
+      "enhancement": "Enhancement",
+      "documentation": "Documentation",
+      "internal": "Internal"
+    },
+    "nextVersion": "Unreleased"
   }
 }
