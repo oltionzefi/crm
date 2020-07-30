@@ -1,12 +1,14 @@
 import * as mongoose from 'mongoose';
 
 export const InstitutionSchema = new mongoose.Schema({
-	seqNo: {
-		type: Number,
+	url: String,
+	title: {
+		type: String,
 		required: true,
 	},
-	url: String,
-	title: String,
-	description: String,
+	description: {
+		type: String,
+		required: true,
+	},
 	active: Boolean,
 });

@@ -31,6 +31,6 @@ export class NotesRepository {
 
 		await newEntity.save();
 
-		return newEntity.toObject({ versionKey: false });
+		return newEntity.toObject({ versionKey: true });
 	}
 }

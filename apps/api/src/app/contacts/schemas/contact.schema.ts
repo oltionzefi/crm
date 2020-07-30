@@ -1,13 +1,18 @@
 import * as mongoose from 'mongoose';
 
 export const ContactSchema = new mongoose.Schema({
-	seqNo: {
-		type: Number,
+	url: String,
+	firstname: {
+		type: String,
 		required: true,
 	},
-	url: String,
-	firstname: String,
-	lastname: String,
-	email: String,
+	lastname: {
+		type: String,
+		required: true,
+	},
+	email: {
+		type: String,
+		required: true,
+	},
 	active: Boolean,
 });

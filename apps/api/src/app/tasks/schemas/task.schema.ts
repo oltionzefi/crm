@@ -1,15 +1,20 @@
 import * as mongoose from 'mongoose';
 
 export const TaskSchema = new mongoose.Schema({
-	seqNo: {
-		type: Number,
+	url: String,
+	title: {
+		type: String,
 		required: true,
 	},
-	url: String,
-	title: String,
-	description: String,
+	description: {
+		type: String,
+		required: true,
+	},
 	longDescription: String,
 	active: Boolean,
-	dueDate: Date,
+	dueDate: {
+		type: Date,
+		required: true,
+	},
 	status: String,
 });

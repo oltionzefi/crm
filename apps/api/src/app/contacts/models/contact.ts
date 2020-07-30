@@ -1,4 +1,4 @@
-import { IsBoolean, IsString, IsInt, IsMongoId } from 'class-validator';
+import { IsBoolean, IsString, IsMongoId } from 'class-validator';
 import { Document } from 'mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -6,7 +6,7 @@ export class Contact extends Document {
 	@IsString()
 	@IsMongoId()
 	_id: string;
-	@IsInt({ message: 'seqNo must be numeric' }) seqNo: number;
+
 	@IsString({ always: false }) url: string;
 
 	@ApiProperty({

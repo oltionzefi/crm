@@ -1,13 +1,15 @@
 import * as mongoose from 'mongoose';
 
 export const NoteSchema = new mongoose.Schema({
-	seqNo: {
-		type: Number,
+	url: String,
+	title: {
+		type: String,
 		required: true,
 	},
-	url: String,
-	title: String,
-	description: String,
+	description: {
+		type: String,
+		required: true,
+	},
 	longDescription: String,
 	active: Boolean,
 });
