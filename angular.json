@@ -84,7 +84,7 @@
 							"apps/crm/tsconfig.app.json",
 							"apps/crm/tsconfig.spec.json"
 						],
-						"exclude": ["**/node_modules/**", "!apps/crm/**"]
+						"exclude": ["**/node_modules/**", "!apps/crm/**/*"]
 					}
 				},
 				"test": {
@@ -92,6 +92,7 @@
 					"options": {
 						"jestConfig": "apps/crm/jest.config.js",
 						"tsConfig": "apps/crm/tsconfig.spec.json",
+						"passWithNoTests": true,
 						"setupFile": "apps/crm/src/test-setup.ts"
 					}
 				}
@@ -119,7 +120,7 @@
 					"builder": "@angular-devkit/build-angular:tslint",
 					"options": {
 						"tsConfig": ["apps/crm-e2e/tsconfig.e2e.json"],
-						"exclude": ["**/node_modules/**", "!apps/crm-e2e/**"]
+						"exclude": ["**/node_modules/**", "!apps/crm-e2e/**/*"]
 					}
 				}
 			}
@@ -166,14 +167,15 @@
 							"apps/api/tsconfig.app.json",
 							"apps/api/tsconfig.spec.json"
 						],
-						"exclude": ["**/node_modules/**", "!apps/api/**"]
+						"exclude": ["**/node_modules/**", "!apps/api/**/*"]
 					}
 				},
 				"test": {
 					"builder": "@nrwl/jest:jest",
 					"options": {
 						"jestConfig": "apps/api/jest.config.js",
-						"tsConfig": "apps/api/tsconfig.spec.json"
+						"tsConfig": "apps/api/tsconfig.spec.json",
+						"passWithNoTests": true
 					}
 				}
 			}
@@ -193,7 +195,7 @@
 						],
 						"exclude": [
 							"**/node_modules/**",
-							"!libs/api-interfaces/**"
+							"!libs/api-interfaces/**/*"
 						]
 					}
 				},
@@ -201,7 +203,8 @@
 					"builder": "@nrwl/jest:jest",
 					"options": {
 						"jestConfig": "libs/api-interfaces/jest.config.js",
-						"tsConfig": "libs/api-interfaces/tsconfig.spec.json"
+						"tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+						"passWithNoTests": true
 					}
 				}
 			}

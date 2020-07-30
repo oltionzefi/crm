@@ -1,19 +1,33 @@
 {
 	"npmScope": "crm",
+	"affected": {
+		"defaultBase": "master"
+	},
 	"implicitDependencies": {
 		"angular.json": "*",
-		"package.json": "*",
-		"tsconfig.json": "*",
+		"package.json": {
+			"dependencies": "*",
+			"devDependencies": "*"
+		},
+		"tsconfig.base.json": "*",
 		"tslint.json": "*",
 		"nx.json": "*"
 	},
+	"tasksRunnerOptions": {
+		"default": {
+			"runner": "@nrwl/workspace/tasks-runners/default",
+			"options": {
+				"cacheableOperations": ["build", "lint", "test", "e2e"]
+			}
+		}
+	},
 	"projects": {
-		"crm-e2e": {
-			"tags": [],
-			"implicitDependencies": ["test"]
-		},
 		"crm": {
 			"tags": []
+		},
+		"crm-e2e": {
+			"tags": [],
+			"implicitDependencies": ["crm"]
 		},
 		"api": {
 			"tags": []
