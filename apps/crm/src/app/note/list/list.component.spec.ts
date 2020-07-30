@@ -1,20 +1,52 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListComponent } from './list.component';
+import { NoteService } from '../services';
+import { NoteServiceMock, ActivatedRouteMock } from '../mocks';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { TableModule } from 'primeng/table';
 
 describe('ListComponent', () => {
 	let component: ListComponent;
 	let fixture: ComponentFixture<ListComponent>;
+	let router: Router;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [ListComponent],
+			imports: [
+				RouterTestingModule.withRoutes([]),
+				ToolbarModule,
+				ButtonModule,
+				SplitButtonModule,
+				TableModule,
+			],
+			providers: [
+				{
+					provide: NoteService,
+					useValue: NoteServiceMock,
+				},
+				{
+					provide: ActivatedRoute,
+					useValue: ActivatedRouteMock,
+				},
+			],
 		}).compileComponents();
 	}));
 
 	beforeEach(() => {
 		fixture = TestBed.createComponent(ListComponent);
 		component = fixture.componentInstance;
+		router = TestBed.inject(Router);
+		component.splitButtons = [
+			{ label: 'Delete', icon: 'pi pi-trash' },
+			{ label: 'Download', icon: 'pi pi-download' },
+		];
+
 		fixture.detectChanges();
 	});
 

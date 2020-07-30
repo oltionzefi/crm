@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { NoteFormGroup } from '../form-group';
-import { NoteService } from '../services/note.service';
+import { NoteService } from '../services';
 import { Router } from '@angular/router';
-import { Note } from '@crm/api-interfaces';
 
 @Component({
 	selector: 'crm-create',

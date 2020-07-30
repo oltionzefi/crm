@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
-import { NoteService } from '../services/note.service';
+import { NoteService } from '../services';
 import { Note } from '@crm/api-interfaces';
 import { MenuItem } from 'primeng/api';
 import { Router, ActivatedRoute } from '@angular/router';

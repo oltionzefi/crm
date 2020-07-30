@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Note } from '@crm/api-interfaces';
 import { HttpClient } from '@angular/common/http';
 
