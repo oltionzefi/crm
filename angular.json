@@ -25,7 +25,13 @@
 							"apps/crm/src/favicon.ico",
 							"apps/crm/src/assets"
 						],
-						"styles": ["apps/crm/src/styles.scss"],
+						"styles": [
+							"node_modules/primeng/resources/themes/nova-light/theme.css",
+							"node_modules/primeng/resources/primeng.min.css",
+							"node_modules/primeflex/primeflex.css",
+							"node_modules/primeicons/primeicons.css",
+							"apps/crm/src/styles.scss"
+						],
 						"scripts": []
 					},
 					"configurations": {
@@ -220,6 +226,9 @@
 		},
 		"@nrwl/angular:library": {
 			"unitTestRunner": "jest"
+		},
+		"@nrwl/schematics:component": {
+			"styleext": "scss"
 		}
 	},
 	"defaultProject": "crm"

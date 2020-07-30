@@ -1,0 +1,63 @@
+<p-table
+	#dt
+	[value]="notes"
+	[(selection)]="selectedNotes"
+	dataKey="id"
+	styleClass="ui-table-notes"
+	[rowHover]="true"
+	[rows]="10"
+	[showCurrentPageReport]="true"
+	[rowsPerPageOptions]="[10, 25, 50]"
+	[loading]="loading"
+	[paginator]="true"
+	currentPageReportTemplate="Showing &#123;first&#125; to &#123;last&#125; of &#123;totalRecords&#125; entries"
+	[filterDelay]="0"
+	[globalFilterFields]="['title', 'description']"
+>
+	<ng-template pTemplate="caption">
+		List of Notes
+		<div class="ui-table-globalfilter-container">
+			<input pInputText type="text" placeholder="Global Search" />
+		</div>
+	</ng-template>
+	<ng-template pTemplate="header">
+		<tr>
+			<th></th>
+			<th pSortableColumn="name">
+				Title <p-sortIcon field="name"></p-sortIcon>
+			</th>
+			<th pSortableColumn="country.name">
+				Description <p-sortIcon field="country.name"></p-sortIcon>
+			</th>
+			<th></th>
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="body" let-note>
+		<tr class="ui-selectable-row">
+			<td>
+				<p-tableCheckbox [value]="note"></p-tableCheckbox>
+			</td>
+			<td>
+				<span class="ui-column-title">Title</span>
+				{{ note.title }}
+			</td>
+			<td>
+				<span class="ui-column-title">Description</span>
+				{{ note.description }}
+			</td>
+			<td>
+				<button
+					pButton
+					type="button"
+					class="ui-button-secondary"
+					icon="pi pi-cog"
+				></button>
+			</td>
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="emptymessage">
+		<tr>
+			<td colspan="8" style="text-align: left;">No notes found.</td>
+		</tr>
+	</ng-template>
+</p-table>

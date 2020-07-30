@@ -11,6 +11,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MONGO_CONNECTION } from '../constants';
 import { UserMiddleware } from './middlewares';
+import { AuthGuard } from './guards';
 
 @Module({
 	imports: [
@@ -24,7 +25,7 @@ import { UserMiddleware } from './middlewares';
 		MongooseModule.forRoot(MONGO_CONNECTION),
 	],
 	controllers: [AppController],
-	providers: [AppService],
+	providers: [AppService, AuthGuard],
 })
 export class AppModule implements NestModule {
 	configure(consumer: MiddlewareConsumer): void {
