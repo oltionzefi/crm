@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ButtonModule } from 'primeng/button';
 import { NoteRoutingModule } from './note-routing.module';
 import { ListComponent } from './list/list.component';
+import { TableModule } from 'primeng/table';
+import { NoteService } from './services/note.service';
+import { ToolbarModule } from 'primeng/toolbar';
+import { SplitButtonModule } from 'primeng/splitbutton';
 
 @NgModule({
 	declarations: [ListComponent],
-	imports: [CommonModule, NoteRoutingModule],
+	imports: [
+		CommonModule,
+		NoteRoutingModule,
+		ToolbarModule,
+		TableModule,
+		ButtonModule,
+		SplitButtonModule,
+	],
+	providers: [NoteService],
 })
 export class NoteModule {}

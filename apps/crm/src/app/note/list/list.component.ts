@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { NoteService } from '../services/note.service';
-
-interface Note {
-	title: string;
-	description: string;
-}
+import { Note } from '@crm/api-interfaces';
+import { MenuItem } from 'primeng/api';
 
 @Component({
 	selector: 'crm-list',
@@ -17,16 +14,23 @@ export class ListComponent implements OnInit {
 
 	selectedNotes: Note[];
 
-	loading: boolean = true;
+	splitButtons: MenuItem[];
+
+	loading = true;
 
 	@ViewChild('dt') table: Table;
 
-	constructor(private readonly notesService: NotesService) {}
+	constructor(private readonly notesService: NoteService) {}
 
 	ngOnInit() {
-		this.notesService.getNotesLarge().then(notes => {
+		this.notesService.getNotesLarge().subscribe((notes: Note[]) => {
 			this.notes = notes;
 			this.loading = false;
 		});
+
+		this.splitButtons = [
+			{ label: 'Delete', icon: 'pi pi-trash' },
+			{ label: 'Download', icon: 'pi pi-download' },
+		];
 	}
 }

@@ -1,8 +1,43 @@
+<p-toolbar>
+	<div class="ui-toolbar-group-left">
+		<button pButton type="button" label="New" icon="pi pi-plus"></button>
+		<button
+			pButton
+			type="button"
+			label="Upload"
+			icon="pi pi-upload"
+			class="ui-button-success"
+		></button>
+
+		<p-splitButton
+			label="Save"
+			icon="pi pi-check"
+			[model]="splitButtons"
+			styleClass="ui-button-warning"
+		></p-splitButton>
+	</div>
+
+	<div class="ui-toolbar-group-right">
+		<button
+			pButton
+			type="button"
+			icon="pi pi-calendar"
+			class="ui-button-success"
+		></button>
+		<button
+			pButton
+			type="button"
+			icon="pi pi-times"
+			class="ui-button-danger"
+		></button>
+	</div>
+</p-toolbar>
+
 <p-table
 	#dt
 	[value]="notes"
 	[(selection)]="selectedNotes"
-	dataKey="id"
+	dataKey="_id"
 	styleClass="ui-table-notes"
 	[rowHover]="true"
 	[rows]="10"
@@ -29,7 +64,6 @@
 			<th pSortableColumn="country.name">
 				Description <p-sortIcon field="country.name"></p-sortIcon>
 			</th>
-			<th></th>
 		</tr>
 	</ng-template>
 	<ng-template pTemplate="body" let-note>
@@ -38,20 +72,10 @@
 				<p-tableCheckbox [value]="note"></p-tableCheckbox>
 			</td>
 			<td>
-				<span class="ui-column-title">Title</span>
 				{{ note.title }}
 			</td>
 			<td>
-				<span class="ui-column-title">Description</span>
 				{{ note.description }}
-			</td>
-			<td>
-				<button
-					pButton
-					type="button"
-					class="ui-button-secondary"
-					icon="pi pi-cog"
-				></button>
 			</td>
 		</tr>
 	</ng-template>
