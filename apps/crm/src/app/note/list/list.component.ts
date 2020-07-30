@@ -3,6 +3,7 @@ import { Table } from 'primeng/table';
 import { NoteService } from '../services/note.service';
 import { Note } from '@crm/api-interfaces';
 import { MenuItem } from 'primeng/api';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'crm-list',
@@ -20,10 +21,14 @@ export class ListComponent implements OnInit {
 
 	@ViewChild('dt') table: Table;
 
-	constructor(private readonly notesService: NoteService) {}
+	constructor(
+		private readonly notesService: NoteService,
+		private readonly router: Router,
+		private readonly route: ActivatedRoute,
+	) {}
 
-	ngOnInit() {
-		this.notesService.getNotesLarge().subscribe((notes: Note[]) => {
+	ngOnInit(): void {
+		this.notesService.getAll().subscribe((notes: Note[]) => {
 			this.notes = notes;
 			this.loading = false;
 		});
@@ -32,5 +37,9 @@ export class ListComponent implements OnInit {
 			{ label: 'Delete', icon: 'pi pi-trash' },
 			{ label: 'Download', icon: 'pi pi-download' },
 		];
+	}
+
+	createNote(): void {
+		this.router.navigate(['create'], { relativeTo: this.route });
 	}
 }

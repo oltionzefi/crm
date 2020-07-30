@@ -7,7 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class NoteService {
 	constructor(private readonly http: HttpClient) {}
 
-	getNotesLarge(): Observable<Note[]> {
+	getAll(): Observable<Note[]> {
 		return this.http.get<Note[]>('/api/notes');
+	}
+
+	create(note: Note): Observable<Note> {
+		return this.http.post<Note>('/api/notes', note);
 	}
 }

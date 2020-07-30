@@ -27,6 +27,10 @@ export class NotesRepository {
 	}
 
 	async addNote(note: Partial<Note>): Promise<Note> {
+		if (!('active' in note)) {
+			note.active = true;
+		}
+
 		const newEntity = new this.noteModel(note);
 
 		await newEntity.save();

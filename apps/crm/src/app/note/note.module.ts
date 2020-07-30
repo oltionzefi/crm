@@ -7,9 +7,13 @@ import { TableModule } from 'primeng/table';
 import { NoteService } from './services/note.service';
 import { ToolbarModule } from 'primeng/toolbar';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { CreateComponent } from './create/create.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
-	declarations: [ListComponent],
+	declarations: [ListComponent, CreateComponent],
 	imports: [
 		CommonModule,
 		NoteRoutingModule,
@@ -17,6 +21,9 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 		TableModule,
 		ButtonModule,
 		SplitButtonModule,
+		ReactiveFormsModule,
+		InputTextModule,
+		InputTextareaModule,
 	],
 	providers: [NoteService],
 })
