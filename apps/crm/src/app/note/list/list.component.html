@@ -52,7 +52,12 @@
 	<ng-template pTemplate="caption">
 		List of Notes
 		<div class="ui-table-globalfilter-container">
-			<input pInputText type="text" placeholder="Global Search" />
+			<input
+				pInputText
+				type="text"
+				placeholder="Global Search"
+				(input)="dt.filterGlobal($event.target.value, 'contains')"
+			/>
 		</div>
 	</ng-template>
 	<ng-template pTemplate="header">
