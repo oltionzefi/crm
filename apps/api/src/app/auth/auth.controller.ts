@@ -23,9 +23,9 @@ export class AuthController {
 		}
 
 		return new Promise((resolve, reject) => {
-			password(plaintextPassword).verifyAgainst(
-				user.passwordHash,
-				(err, verified) => {
+			password
+				.default(plaintextPassword)
+				.verifyAgainst(user.passwordHash, (err, verified) => {
 					if (!verified) {
 						reject(new UnauthorizedException());
 					}
@@ -36,8 +36,7 @@ export class AuthController {
 					);
 
 					resolve({ authJwtToken });
-				},
-			);
+				});
 		});
 	}
 }

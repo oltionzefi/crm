@@ -1,4 +1,4 @@
-import { IsBoolean, IsString, IsInt, IsMongoId } from 'class-validator';
+import { IsBoolean, IsString, IsMongoId } from 'class-validator';
 import { Document } from 'mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 
