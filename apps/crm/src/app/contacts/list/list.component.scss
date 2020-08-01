@@ -1,0 +1,15 @@
+:host ::ng-deep .ui-toolbar {
+	margin-top: 10px;
+}
+
+:host ::ng-deep button {
+	margin-right: 0.25em;
+}
+
+:host ::ng-deep .ui-splitbutton {
+	margin-left: 0.25em;
+}
+
+:host ::ng-deep .ui-splitbutton button {
+	margin-right: 0;
+}

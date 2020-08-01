@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
 	selector: 'crm-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
+	splitButtons: MenuItem[];
+
 	constructor() {}
 
 	ngOnInit(): void {}

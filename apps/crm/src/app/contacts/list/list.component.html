@@ -1,1 +1,34 @@
-<p>list works!</p>
+<p-toolbar>
+	<div class="ui-toolbar-group-left">
+		<button pButton type="button" label="New" icon="pi pi-plus"></button>
+		<button
+			pButton
+			type="button"
+			label="Upload"
+			icon="pi pi-upload"
+			class="ui-button-success"
+		></button>
+
+		<p-splitButton
+			label="Save"
+			icon="pi pi-check"
+			[model]="splitButtons"
+			styleClass="ui-button-warning"
+		></p-splitButton>
+	</div>
+
+	<div class="ui-toolbar-group-right">
+		<button
+			pButton
+			type="button"
+			icon="pi pi-calendar"
+			class="ui-button-success"
+		></button>
+		<button
+			pButton
+			type="button"
+			icon="pi pi-times"
+			class="ui-button-danger"
+		></button>
+	</div>
+</p-toolbar>
