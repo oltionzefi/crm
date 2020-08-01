@@ -24,4 +24,8 @@ export class CreateComponent {
 			);
 		}
 	}
+
+	closeToolbar(): void {
+		this.router.navigate(['/notes']);
+	}
 }
