@@ -4,6 +4,7 @@ import { NoteService } from '../services';
 import { Note } from '@crm/api-interfaces';
 import { MenuItem } from 'primeng/api';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'crm-list',
@@ -11,13 +12,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 	styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-	notes: Note[];
+	notes$: Observable<Note[]>;
 
 	selectedNotes: Note[];
 
 	splitButtons: MenuItem[];
-
-	loading = true;
 
 	@ViewChild('dt') table: Table;
 
@@ -28,10 +27,7 @@ export class ListComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.notesService.getAll().subscribe((notes: Note[]) => {
-			this.notes = notes;
-			this.loading = false;
-		});
+		this.notes$ = this.notesService.getAll();
 
 		this.splitButtons = [
 			{ label: 'Delete', icon: 'pi pi-trash' },
