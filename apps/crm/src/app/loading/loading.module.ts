@@ -8,5 +8,6 @@ import { LoadingService } from './services/loading.service';
 	declarations: [LoadingComponent],
 	imports: [CommonModule, ProgressSpinnerModule],
 	providers: [LoadingService],
+	exports: [LoadingComponent],
 })
 export class LoadingModule {}

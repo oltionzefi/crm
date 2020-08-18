@@ -3,12 +3,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { RouterTestingModule } from '@angular/router/testing';
+import { LoadingModule } from './loading';
 
 describe('AppComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [AppComponent],
-			imports: [HttpClientModule, TabMenuModule, RouterTestingModule],
+			imports: [
+				HttpClientModule,
+				TabMenuModule,
+				RouterTestingModule,
+				LoadingModule,
+			],
 		}).compileComponents();
 	}));
 
