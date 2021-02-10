@@ -40,6 +40,6 @@ export class InstitutionsRepository {
 
 		await newEntity.save();
 
-		return newEntity.toObject({ versionKey: false });
+		return newEntity;
 	}
 }

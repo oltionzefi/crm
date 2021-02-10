@@ -31,6 +31,6 @@ export class ContactsRepository {
 
 		await newEntity.save();
 
-		return newEntity.toObject({ versionKey: false });
+		return newEntity;
 	}
 }
