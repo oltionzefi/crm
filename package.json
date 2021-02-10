@@ -97,7 +97,7 @@
     "lerna": "3.22.1",
     "lerna-changelog": "^1.0.1",
     "prettier": "2.0.5",
-    "pretty-quick": "2.0.1",
+    "pretty-quick": "3.1.0",
     "release-it": "13.6.7",
     "ts-jest": "26.2.0",
     "ts-node": "~8.10.2",
