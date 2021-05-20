@@ -84,7 +84,7 @@
     "@types/jest": "26.0.20",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/mongoose": "^5.10.3",
-    "@types/node": "~14.14.25",
+    "@types/node": "~15.3.1",
     "@types/password-hash-and-salt": "^0.1.0",
     "babel-loader": "^8.2.2",
     "codelyzer": "~6.0.1",
