@@ -50,7 +50,7 @@
     "@nestjs/core": "7.6.12",
     "@nestjs/mongoose": "7.2.3",
     "@nestjs/platform-express": "7.6.12",
-    "@nestjs/swagger": "^4.7.12",
+    "@nestjs/swagger": "^5.0.3",
     "@nrwl/angular": "11.2.12",
     "class-validator": "^0.13.1",
     "concurrently": "5.3.0",
