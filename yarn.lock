@@ -3360,10 +3360,10 @@
     tslib "2.1.0"
     uuid "8.3.2"
 
-"@nestjs/mapped-types@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-0.3.0.tgz#1dcf178c198e948c548ca803850e2eba639900d4"
-  integrity sha512-AdWVTOg3AhAEcVhPGgUJiLbLXb7L5Pe7vc20YQ0oOXP/KD/nJj0I3BcytVdBhzmgepol67BdivNUvo27Hx3Ndw==
+"@nestjs/mapped-types@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-1.0.0.tgz#52a0441795f6da8144a35970d3ebc19281f31cfd"
+  integrity sha512-26AW5jHadLXtvHs+M+Agd9KZ92dDlBrmD0rORlBlvn2KvsWs4JRaKl2mUsrW7YsdZeAu3Hc4ukqyYyDdyCmMWQ==
 
 "@nestjs/mongoose@7.2.3":
   version "7.2.3"
@@ -3400,13 +3400,13 @@
     "@angular-devkit/schematics" "9.1.7"
     fs-extra "9.0.0"
 
-"@nestjs/swagger@^4.7.12":
-  version "4.7.12"
-  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-4.7.12.tgz#8615bc1680ca343981a57c9d46a640fc6021611b"
-  integrity sha512-Vkzdhc9EMbALvS2I/XHBffxHLZztuqhhyNt5FeMz2znh7GUvLxh/zQLiVPbTtHH6E8F0K9FQ01+EUgCfTkHcAA==
+"@nestjs/swagger@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-5.0.3.tgz#61d199483014c7d2f5601d2d9136455914fb63ed"
+  integrity sha512-F/E0eDBMjYYkz+Tesw+UXjvxUsZYRBaDhm12KCfyPjns8yEF62SoqnFqYPstdvejhN+fd0T/E9MYVLiZtDMqRw==
   dependencies:
-    "@nestjs/mapped-types" "0.3.0"
-    lodash "4.17.20"
+    "@nestjs/mapped-types" "1.0.0"
+    lodash "4.17.21"
     path-to-regexp "3.2.0"
 
 "@nestjs/testing@7.6.12":
@@ -12603,10 +12603,15 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@4.17.20, lodash@4.x, lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.5.0:
+lodash@4.17.20:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+
+lodash@4.17.21, lodash@4.x, lodash@^4.0.1, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.5.0:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^1.0.2:
   version "1.0.2"
