@@ -56,7 +56,7 @@
     "concurrently": "5.3.0",
     "core-js": "3.8.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "5.11.15",
+    "mongoose": "5.13.8",
     "password-hash-and-salt": "^0.1.4",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
