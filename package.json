@@ -79,7 +79,7 @@
     "@nrwl/jest": "11.2.12",
     "@nrwl/nest": "11.2.12",
     "@nrwl/node": "11.2.12",
-    "@nrwl/workspace": "11.2.12",
+    "@nrwl/workspace": "13.10.0",
     "@storybook/angular": "6.1.17",
     "@types/jest": "26.0.20",
     "@types/jsonwebtoken": "^8.5.0",
