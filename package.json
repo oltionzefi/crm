@@ -59,7 +59,7 @@
     "mongoose": "5.11.15",
     "password-hash-and-salt": "^0.1.4",
     "primeflex": "^2.0.0",
-    "primeicons": "^4.1.0",
+    "primeicons": "^6.0.1",
     "primeng": "^11.2.1",
     "reflect-metadata": "0.1.13",
     "rxjs": "~6.6.3",
