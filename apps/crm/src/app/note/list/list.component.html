@@ -9,17 +9,15 @@
       class="ui-button-success"
     ></button>
 
-    <p-splitButton
-      label="Save"
-      icon="pi pi-check"
-      [model]="splitButtons"
-      styleClass="ui-button-warning"
-    ></p-splitButton>
-  </div>
-
-  <div class="ui-toolbar-group-right">
-    <button pButton type="button" icon="pi pi-calendar" class="ui-button-success"></button>
-    <button pButton type="button" icon="pi pi-times" class="ui-button-danger"></button>
+    <button
+      *ngIf="showDelete"
+      pButton
+      type="button"
+      label="Delete"
+      icon="pi pi-times"
+      class="bg-red-500"
+      (click)="deleteNotes()"
+    ></button>
   </div>
 </p-toolbar>
 
@@ -40,20 +38,12 @@
   [filterDelay]="0"
   [globalFilterFields]="['title', 'description']"
 >
-  <ng-template pTemplate="caption">
-    List of Notes
-    <div class="ui-table-globalfilter-container">
-      <input
-        pInputText
-        type="text"
-        placeholder="Global Search"
-        (input)="dt.filterGlobal($event.target.value, 'contains')"
-      />
-    </div>
-  </ng-template>
+  <ng-template pTemplate="caption"> List of Notes </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th></th>
+      <th>
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
       <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
       <th pSortableColumn="description">
         Description <p-sortIcon field="description"></p-sortIcon>
@@ -69,7 +59,12 @@
         {{ note.title }}
       </td>
       <td>
-        {{ note.description }}
+        <ng-container *ngIf="note.description.length >= 100; else fullDescription">
+          {{ note.description.substring(0, 100) }} ...
+        </ng-container>
+        <ng-template #fullDescription>
+          {{ note.description }}
+        </ng-template>
       </td>
     </tr>
   </ng-template>

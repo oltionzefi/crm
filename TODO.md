@@ -1,15 +1,39 @@
 # TODO
 
-## First phase
+## List of todos
 
-- [] Database structure
-
-- [] Unit test configuration with karma
-
-- [] Threshold for unit test
-
-- [] Choose third party library between Primeng or Material for UI
-
-## Second phase
-
-...depending on `First phase`
+- [x] Bulk delete notes
+- [x] Remove from list view of notes buttons for saving/closing
+- [ ] Complete fully the migration to latest releases of packages/nx
+- [ ] Add Github Action to run on push/merge all unit test
+- [ ] Merge definitions from library of interfaces with API
+- [ ] Add tooltip for action performed
+- [ ] Show when error happens
+- [ ] Upload functionality of notes from .txt
+- [ ] Upload functionality of notes from .csv
+- [ ] Remove from list view of institutions buttons for saving/closing
+- [ ] Create institution view
+- [ ] Create institution API endpoint
+- [ ] Table list of institutions
+- [ ] Buik delete institutions from list
+- [ ] Create contact view
+- [ ] Create contact API endpoint
+- [ ] Table list of contacts
+- [ ] Buik delete contacts from list
+- [ ] Create task view
+- [ ] Create task API endpoint
+- [ ] Table list of tasks
+- [ ] Buik delete tasks from list
+- [ ] Upload functionality of institutions from .txt
+- [ ] Upload functionality of institutions from .csv
+- [ ] Link contacts with instutitions
+- [ ] Link tasks with contacts
+- [ ] Add notes to contacts API
+- [ ] Show notes of contact in view
+- [ ] Dockerize API & Frontend
+- [ ] Execute project with docker compose
+- [ ] Add maildev to project
+- [ ] Send mail to contact when new task is added for him
+- [ ] Send mail to contact when new note is added for him
+- [ ] Upload functionality of contacts from .txt
+- [ ] Upload functionality of contacts from .csv

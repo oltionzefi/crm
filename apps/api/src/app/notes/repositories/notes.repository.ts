@@ -37,4 +37,9 @@ export class NotesRepository {
 
     return newEntity;
   }
+
+  deleteBulk(notes: Note[]) {
+    const ids = notes.map((note: Note) => note._id);
+    return this.noteModel.deleteMany({ _id: ids });
+  }
 }

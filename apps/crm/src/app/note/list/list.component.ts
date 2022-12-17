@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { NoteService } from '../services';
 import { Note } from '@crm/api-interfaces';
@@ -12,23 +12,22 @@ import { Observable } from 'rxjs';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
+  private readonly notesService = inject(NoteService);
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
+
   notes$: Observable<Note[]>;
-
   selectedNotes: Note[];
-
   splitButtons: MenuItem[];
 
   @ViewChild('dt') table: Table;
 
-  constructor(
-    private readonly notesService: NoteService,
-    private readonly router: Router,
-    private readonly route: ActivatedRoute,
-  ) {}
+  get showDelete(): boolean {
+    return !!(this.selectedNotes && this.selectedNotes.length);
+  }
 
   ngOnInit(): void {
-    this.notes$ = this.notesService.getAll();
-
+    this.updateNotes();
     this.splitButtons = [
       { label: 'Delete', icon: 'pi pi-trash' },
       { label: 'Download', icon: 'pi pi-download' },
@@ -37,5 +36,15 @@ export class ListComponent implements OnInit {
 
   createNote(): void {
     this.router.navigate(['create'], { relativeTo: this.route });
+  }
+
+  deleteNotes(): void {
+    this.notesService.delete(this.selectedNotes).subscribe(() => {
+      this.updateNotes();
+    });
+  }
+
+  private updateNotes(): void {
+    this.notes$ = this.notesService.getAll();
   }
 }

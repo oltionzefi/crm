@@ -54,4 +54,10 @@ export class NotesController {
   async deleteEntity(@Param('noteId') noteId: string) {
     return this.notesDB.deleteNote(noteId);
   }
+
+  @Delete()
+  @UseGuards(AuthGuard)
+  async deleteBulk(@Body() notes: Note[]) {
+    return this.notesDB.deleteBulk(notes);
+  }
 }

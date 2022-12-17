@@ -1,4 +1,5 @@
 <p-toolbar>
+  <div class="ui-toolbar-group-left"></div>
   <div class="ui-toolbar-group-right">
     <button
       pButton
@@ -10,22 +11,27 @@
   </div>
 </p-toolbar>
 
-<form class="ui-fluid p-formgrid p-grid" [formGroup]="createEventFormGroup">
-  <div class="p-field p-col-12 p-md-12">
-    <label for="title">Title</label>
-    <input id="title" type="text" formControlName="title" pInputText />
+<form [formGroup]="createEventFormGroup">
+  <div class="card">
+    <h5>Create Note</h5>
+    <div class="field">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        formControlName="title"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+      />
+    </div>
+    <div class="field">
+      <label for="description">Description</label>
+      <textarea
+        type="text"
+        rows="4"
+        formControlName="description"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+      ></textarea>
+    </div>
   </div>
-  <div class="p-field p-col-12">
-    <label for="description">Description</label>
-    <textarea
-      id="description"
-      type="text"
-      rows="4"
-      formControlName="description"
-      pInputTextarea
-    ></textarea>
-  </div>
-
   <button
     pButton
     type="button"
