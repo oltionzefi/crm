@@ -5,41 +5,35 @@ import { Institution } from '../models';
 
 @Injectable()
 export class InstitutionsRepository {
-	constructor(
-		@InjectModel('Institution')
-		private institutionModel: Model<Institution>,
-	) {}
+  constructor(
+    @InjectModel('Institution')
+    private institutionModel: Model<Institution>,
+  ) {}
 
-	async findAll(): Promise<Institution[]> {
-		return this.institutionModel.find();
-	}
+  async findAll(): Promise<Institution[]> {
+    return this.institutionModel.find();
+  }
 
-	async findInstitutionByUrl(institutionUrl: string): Promise<Institution> {
-		return this.institutionModel.findOne({ url: institutionUrl });
-	}
+  async findInstitutionByUrl(institutionUrl: string): Promise<Institution> {
+    return this.institutionModel.findOne({ url: institutionUrl });
+  }
 
-	// This should return a promise
-	updateInstitution(institutionId: string, changes: Partial<Institution>) {
-		return this.institutionModel.findOneAndUpdate(
-			{ _id: institutionId },
-			changes,
-			{
-				new: true,
-			},
-		);
-	}
+  // This should return a promise
+  updateInstitution(institutionId: string, changes: Partial<Institution>) {
+    return this.institutionModel.findOneAndUpdate({ _id: institutionId }, changes, {
+      new: true,
+    });
+  }
 
-	deleteInstitution(institutionId: string) {
-		return this.institutionModel.deleteOne({ _id: institutionId });
-	}
+  deleteInstitution(institutionId: string) {
+    return this.institutionModel.deleteOne({ _id: institutionId });
+  }
 
-	async addInstitution(
-		institution: Partial<Institution>,
-	): Promise<Institution> {
-		const newEntity = new this.institutionModel(institution);
+  async addInstitution(institution: Partial<Institution>): Promise<Institution> {
+    const newEntity = new this.institutionModel(institution);
 
-		await newEntity.save();
+    await newEntity.save();
 
-		return newEntity;
-	}
+    return newEntity;
+  }
 }

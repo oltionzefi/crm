@@ -7,35 +7,35 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
-	selector: 'crm-list',
-	templateUrl: './list.component.html',
-	styleUrls: ['./list.component.scss'],
+  selector: 'crm-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-	notes$: Observable<Note[]>;
+  notes$: Observable<Note[]>;
 
-	selectedNotes: Note[];
+  selectedNotes: Note[];
 
-	splitButtons: MenuItem[];
+  splitButtons: MenuItem[];
 
-	@ViewChild('dt') table: Table;
+  @ViewChild('dt') table: Table;
 
-	constructor(
-		private readonly notesService: NoteService,
-		private readonly router: Router,
-		private readonly route: ActivatedRoute,
-	) {}
+  constructor(
+    private readonly notesService: NoteService,
+    private readonly router: Router,
+    private readonly route: ActivatedRoute,
+  ) {}
 
-	ngOnInit(): void {
-		this.notes$ = this.notesService.getAll();
+  ngOnInit(): void {
+    this.notes$ = this.notesService.getAll();
 
-		this.splitButtons = [
-			{ label: 'Delete', icon: 'pi pi-trash' },
-			{ label: 'Download', icon: 'pi pi-download' },
-		];
-	}
+    this.splitButtons = [
+      { label: 'Delete', icon: 'pi pi-trash' },
+      { label: 'Download', icon: 'pi pi-download' },
+    ];
+  }
 
-	createNote(): void {
-		this.router.navigate(['create'], { relativeTo: this.route });
-	}
+  createNote(): void {
+    this.router.navigate(['create'], { relativeTo: this.route });
+  }
 }

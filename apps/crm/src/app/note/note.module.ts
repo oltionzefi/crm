@@ -13,18 +13,18 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
-	declarations: [ListComponent, CreateComponent],
-	imports: [
-		CommonModule,
-		NoteRoutingModule,
-		ToolbarModule,
-		TableModule,
-		ButtonModule,
-		SplitButtonModule,
-		ReactiveFormsModule,
-		InputTextModule,
-		InputTextareaModule,
-	],
-	providers: [NoteService],
+  declarations: [ListComponent, CreateComponent],
+  imports: [
+    CommonModule,
+    NoteRoutingModule,
+    ToolbarModule,
+    TableModule,
+    ButtonModule,
+    SplitButtonModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    InputTextareaModule,
+  ],
+  providers: [NoteService],
 })
 export class NoteModule {}

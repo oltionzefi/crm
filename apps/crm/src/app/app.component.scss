@@ -2,12 +2,12 @@
  * Remove template code below
  */
 :host {
-	display: block;
-	font-family: sans-serif;
-	min-width: 300px;
-	margin: auto;
+  display: block;
+  font-family: sans-serif;
+  min-width: 300px;
+  margin: auto;
 
-	::ng-deep .ui-tabmenu .ui-tabmenu-nav {
-		border-bottom: none;
-	}
+  ::ng-deep .ui-tabmenu .ui-tabmenu-nav {
+    border-bottom: none;
+  }
 }

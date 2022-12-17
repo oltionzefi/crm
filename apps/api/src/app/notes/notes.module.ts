@@ -5,10 +5,8 @@ import { NotesController } from './notes.controller';
 import { NotesRepository } from './repositories';
 
 @Module({
-	imports: [
-		MongooseModule.forFeature([{ name: 'Note', schema: NoteSchema }]),
-	],
-	controllers: [NotesController],
-	providers: [NotesRepository],
+  imports: [MongooseModule.forFeature([{ name: 'Note', schema: NoteSchema }])],
+  controllers: [NotesController],
+  providers: [NotesRepository],
 })
 export class NotesModule {}

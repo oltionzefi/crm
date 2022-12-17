@@ -5,36 +5,36 @@ import { Note } from '../models';
 
 @Injectable()
 export class NotesRepository {
-	constructor(@InjectModel('Note') private noteModel: Model<Note>) {}
+  constructor(@InjectModel('Note') private noteModel: Model<Note>) {}
 
-	async findAll(): Promise<Note[]> {
-		return this.noteModel.find();
-	}
+  async findAll(): Promise<Note[]> {
+    return this.noteModel.find();
+  }
 
-	async findNoteByUrl(noteUrl: string): Promise<Note> {
-		return this.noteModel.findOne({ url: noteUrl });
-	}
+  async findNoteByUrl(noteUrl: string): Promise<Note> {
+    return this.noteModel.findOne({ url: noteUrl });
+  }
 
-	// This should return a promise
-	updateNote(noteId: string, changes: Partial<Note>) {
-		return this.noteModel.findOneAndUpdate({ _id: noteId }, changes, {
-			new: true,
-		});
-	}
+  // This should return a promise
+  updateNote(noteId: string, changes: Partial<Note>) {
+    return this.noteModel.findOneAndUpdate({ _id: noteId }, changes, {
+      new: true,
+    });
+  }
 
-	deleteNote(noteId: string) {
-		return this.noteModel.deleteOne({ _id: noteId });
-	}
+  deleteNote(noteId: string) {
+    return this.noteModel.deleteOne({ _id: noteId });
+  }
 
-	async addNote(note: Partial<Note>): Promise<Note> {
-		if (!('active' in note)) {
-			note.active = true;
-		}
+  async addNote(note: Partial<Note>): Promise<Note> {
+    if (!('active' in note)) {
+      note.active = true;
+    }
 
-		const newEntity = new this.noteModel(note);
+    const newEntity = new this.noteModel(note);
 
-		await newEntity.save();
+    await newEntity.save();
 
-		return newEntity;
-	}
+    return newEntity;
+  }
 }

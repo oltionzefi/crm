@@ -5,9 +5,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { LoadingService } from './services/loading.service';
 
 @NgModule({
-	declarations: [LoadingComponent],
-	imports: [CommonModule, ProgressSpinnerModule],
-	providers: [LoadingService],
-	exports: [LoadingComponent],
+  declarations: [LoadingComponent],
+  imports: [CommonModule, ProgressSpinnerModule],
+  providers: [LoadingService],
+  exports: [LoadingComponent],
 })
 export class LoadingModule {}

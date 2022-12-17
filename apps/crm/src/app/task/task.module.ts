@@ -8,14 +8,8 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { TaskService } from './services';
 
 @NgModule({
-	declarations: [ListComponent],
-	imports: [
-		CommonModule,
-		TaskRoutingModule,
-		ToolbarModule,
-		ButtonModule,
-		SplitButtonModule,
-	],
-	providers: [TaskService],
+  declarations: [ListComponent],
+  imports: [CommonModule, TaskRoutingModule, ToolbarModule, ButtonModule, SplitButtonModule],
+  providers: [TaskService],
 })
 export class TaskModule {}

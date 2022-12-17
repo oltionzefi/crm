@@ -9,23 +9,23 @@ import { AuthGuard } from './auth.guard';
 import { LoadingModule, LoaderInterceptor } from './loading';
 
 @NgModule({
-	declarations: [AppComponent],
-	imports: [
-		BrowserModule,
-		HttpClientModule,
-		TabMenuModule,
-		AppRoutingModule,
-		BrowserAnimationsModule,
-		LoadingModule,
-	],
-	providers: [
-		AuthGuard,
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: LoaderInterceptor,
-			multi: true,
-		},
-	],
-	bootstrap: [AppComponent],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    TabMenuModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    LoadingModule,
+  ],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

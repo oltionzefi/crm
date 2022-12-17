@@ -5,13 +5,13 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class NoteService {
-	constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
-	getAll(): Observable<Note[]> {
-		return this.http.get<Note[]>('/api/notes');
-	}
+  getAll(): Observable<Note[]> {
+    return this.http.get<Note[]>('/api/notes');
+  }
 
-	create(note: Note): Observable<Note> {
-		return this.http.post<Note>('/api/notes', note);
-	}
+  create(note: Note): Observable<Note> {
+    return this.http.post<Note>('/api/notes', note);
+  }
 }

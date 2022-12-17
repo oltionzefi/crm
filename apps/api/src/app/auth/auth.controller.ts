@@ -8,35 +8,27 @@ import { IUser } from './user.schema';
 
 @Controller('login')
 export class AuthController {
-	constructor(@InjectModel('User') private userModel: Model<IUser>) {}
+  constructor(@InjectModel('User') private userModel: Model<IUser>) {}
 
-	@Post()
-	async login(
-		@Body('email') email: string,
-		@Body('password') plaintextPassword: string,
-	) {
-		const user = await this.userModel.findOne({ email });
+  @Post()
+  async login(@Body('email') email: string, @Body('password') plaintextPassword: string) {
+    const user = await this.userModel.findOne({ email });
 
-		if (!user) {
-			console.log('User does not exist on the database');
-			throw new UnauthorizedException();
-		}
+    if (!user) {
+      console.log('User does not exist on the database');
+      throw new UnauthorizedException();
+    }
 
-		return new Promise((resolve, reject) => {
-			password
-				.default(plaintextPassword)
-				.verifyAgainst(user.passwordHash, (err, verified) => {
-					if (!verified) {
-						reject(new UnauthorizedException());
-					}
+    return new Promise((resolve, reject) => {
+      password.default(plaintextPassword).verifyAgainst(user.passwordHash, (err, verified) => {
+        if (!verified) {
+          reject(new UnauthorizedException());
+        }
 
-					const authJwtToken = jwt.sign(
-						{ email, roles: user.roles },
-						JWT_SECRET,
-					);
+        const authJwtToken = jwt.sign({ email, roles: user.roles }, JWT_SECRET);
 
-					resolve({ authJwtToken });
-				});
-		});
-	}
+        resolve({ authJwtToken });
+      });
+    });
+  }
 }

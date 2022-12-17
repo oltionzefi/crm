@@ -12,46 +12,46 @@ import { TableModule } from 'primeng/table';
 import { ActivatedRouteMock } from '../../mocks';
 
 describe('ListComponent', () => {
-	let component: ListComponent;
-	let fixture: ComponentFixture<ListComponent>;
-	let router: Router;
+  let component: ListComponent;
+  let fixture: ComponentFixture<ListComponent>;
+  let router: Router;
 
-	beforeEach(async(() => {
-		TestBed.configureTestingModule({
-			declarations: [ListComponent],
-			imports: [
-				RouterTestingModule.withRoutes([]),
-				ToolbarModule,
-				ButtonModule,
-				SplitButtonModule,
-				TableModule,
-			],
-			providers: [
-				{
-					provide: NoteService,
-					useValue: NoteServiceMock,
-				},
-				{
-					provide: ActivatedRoute,
-					useValue: ActivatedRouteMock,
-				},
-			],
-		}).compileComponents();
-	}));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ListComponent],
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        ToolbarModule,
+        ButtonModule,
+        SplitButtonModule,
+        TableModule,
+      ],
+      providers: [
+        {
+          provide: NoteService,
+          useValue: NoteServiceMock,
+        },
+        {
+          provide: ActivatedRoute,
+          useValue: ActivatedRouteMock,
+        },
+      ],
+    }).compileComponents();
+  }));
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(ListComponent);
-		component = fixture.componentInstance;
-		router = TestBed.inject(Router);
-		component.splitButtons = [
-			{ label: 'Delete', icon: 'pi pi-trash' },
-			{ label: 'Download', icon: 'pi pi-download' },
-		];
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ListComponent);
+    component = fixture.componentInstance;
+    router = TestBed.inject(Router);
+    component.splitButtons = [
+      { label: 'Delete', icon: 'pi pi-trash' },
+      { label: 'Download', icon: 'pi pi-download' },
+    ];
 
-		fixture.detectChanges();
-	});
+    fixture.detectChanges();
+  });
 
-	it('should create', () => {
-		expect(component).toBeTruthy();
-	});
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

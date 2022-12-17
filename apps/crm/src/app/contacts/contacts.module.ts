@@ -9,14 +9,8 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { ContactService } from './services';
 
 @NgModule({
-	declarations: [ListComponent],
-	imports: [
-		CommonModule,
-		ContactsRoutingModule,
-		ToolbarModule,
-		ButtonModule,
-		SplitButtonModule,
-	],
-	providers: [ContactService],
+  declarations: [ListComponent],
+  imports: [CommonModule, ContactsRoutingModule, ToolbarModule, ButtonModule, SplitButtonModule],
+  providers: [ContactService],
 })
 export class ContactsModule {}

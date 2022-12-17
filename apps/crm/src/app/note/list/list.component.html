@@ -1,99 +1,81 @@
 <p-toolbar>
-	<div class="ui-toolbar-group-left">
-		<button
-			pButton
-			type="button"
-			label="New"
-			icon="pi pi-plus"
-			(click)="createNote()"
-		></button>
-		<button
-			pButton
-			type="button"
-			label="Upload"
-			icon="pi pi-upload"
-			class="ui-button-success"
-		></button>
+  <div class="ui-toolbar-group-left">
+    <button pButton type="button" label="New" icon="pi pi-plus" (click)="createNote()"></button>
+    <button
+      pButton
+      type="button"
+      label="Upload"
+      icon="pi pi-upload"
+      class="ui-button-success"
+    ></button>
 
-		<p-splitButton
-			label="Save"
-			icon="pi pi-check"
-			[model]="splitButtons"
-			styleClass="ui-button-warning"
-		></p-splitButton>
-	</div>
+    <p-splitButton
+      label="Save"
+      icon="pi pi-check"
+      [model]="splitButtons"
+      styleClass="ui-button-warning"
+    ></p-splitButton>
+  </div>
 
-	<div class="ui-toolbar-group-right">
-		<button
-			pButton
-			type="button"
-			icon="pi pi-calendar"
-			class="ui-button-success"
-		></button>
-		<button
-			pButton
-			type="button"
-			icon="pi pi-times"
-			class="ui-button-danger"
-		></button>
-	</div>
+  <div class="ui-toolbar-group-right">
+    <button pButton type="button" icon="pi pi-calendar" class="ui-button-success"></button>
+    <button pButton type="button" icon="pi pi-times" class="ui-button-danger"></button>
+  </div>
 </p-toolbar>
 
 <p-table
-	*ngIf="notes$ | async as notes"
-	#dt
-	[value]="notes"
-	[(selection)]="selectedNotes"
-	dataKey="_id"
-	styleClass="ui-table-notes"
-	[rowHover]="true"
-	[rows]="10"
-	[showCurrentPageReport]="true"
-	[rowsPerPageOptions]="[10, 25, 50]"
-	[loading]="loading"
-	[paginator]="true"
-	currentPageReportTemplate="Showing &#123;first&#125; to &#123;last&#125; of &#123;totalRecords&#125; entries"
-	[filterDelay]="0"
-	[globalFilterFields]="['title', 'description']"
+  *ngIf="notes$ | async as notes"
+  #dt
+  [value]="notes"
+  [(selection)]="selectedNotes"
+  dataKey="_id"
+  styleClass="ui-table-notes"
+  [rowHover]="true"
+  [rows]="10"
+  [showCurrentPageReport]="true"
+  [rowsPerPageOptions]="[10, 25, 50]"
+  [loading]="loading"
+  [paginator]="true"
+  currentPageReportTemplate="Showing &#123;first&#125; to &#123;last&#125; of &#123;totalRecords&#125; entries"
+  [filterDelay]="0"
+  [globalFilterFields]="['title', 'description']"
 >
-	<ng-template pTemplate="caption">
-		List of Notes
-		<div class="ui-table-globalfilter-container">
-			<input
-				pInputText
-				type="text"
-				placeholder="Global Search"
-				(input)="dt.filterGlobal($event.target.value, 'contains')"
-			/>
-		</div>
-	</ng-template>
-	<ng-template pTemplate="header">
-		<tr>
-			<th></th>
-			<th pSortableColumn="title">
-				Title <p-sortIcon field="title"></p-sortIcon>
-			</th>
-			<th pSortableColumn="description">
-				Description <p-sortIcon field="description"></p-sortIcon>
-			</th>
-		</tr>
-	</ng-template>
-	<ng-template pTemplate="body" let-note>
-		<tr class="ui-selectable-row">
-			<td>
-				<p-tableCheckbox [value]="note"></p-tableCheckbox>
-			</td>
-			<td>
-				{{ note.title }}
-			</td>
-			<td>
-				{{ note.description }}
-			</td>
-		</tr>
-	</ng-template>
-	<ng-template pTemplate="emptymessage">
-		<tr>
-			<td colspan="8" style="text-align: left;">No notes found.</td>
-		</tr>
-	</ng-template>
+  <ng-template pTemplate="caption">
+    List of Notes
+    <div class="ui-table-globalfilter-container">
+      <input
+        pInputText
+        type="text"
+        placeholder="Global Search"
+        (input)="dt.filterGlobal($event.target.value, 'contains')"
+      />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th></th>
+      <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
+      <th pSortableColumn="description">
+        Description <p-sortIcon field="description"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-note>
+    <tr class="ui-selectable-row">
+      <td>
+        <p-tableCheckbox [value]="note"></p-tableCheckbox>
+      </td>
+      <td>
+        {{ note.title }}
+      </td>
+      <td>
+        {{ note.description }}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="8" style="text-align: left">No notes found.</td>
+    </tr>
+  </ng-template>
 </p-table>

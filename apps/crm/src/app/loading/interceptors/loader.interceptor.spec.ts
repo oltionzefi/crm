@@ -4,17 +4,17 @@ import { LoaderInterceptor } from './loader.interceptor';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LoaderInterceptor', () => {
-	let service: LoaderInterceptor;
+  let service: LoaderInterceptor;
 
-	beforeEach(() => {
-		TestBed.configureTestingModule({
-			imports: [HttpClientTestingModule],
-			providers: [LoaderInterceptor],
-		});
-		service = TestBed.inject(LoaderInterceptor);
-	});
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [LoaderInterceptor],
+    });
+    service = TestBed.inject(LoaderInterceptor);
+  });
 
-	it('should be created', () => {
-		expect(service).toBeTruthy();
-	});
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
 });

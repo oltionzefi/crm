@@ -1,6 +1,6 @@
 import { Button } from '@storybook/angular/demo';
 
-export default { title: 'My Button' }
+export default { title: 'My Button' };
 
 export const withText = () => ({
   component: Button,

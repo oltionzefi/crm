@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  database:
+    image: mongo:6.0.2
+    environment:
+      - MONGO_INITDB_DATABASE=$MONGO_INITDB_DATABASE
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_INITDB_ROOT_PASSWORD
+    healthcheck:
+      test: echo 'db.runCommand({serverStatus:1}).ok' | mongo admin -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --quiet | grep 1
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    env_file:
+      - .env
+    ports:
+      - 27017:27017
+    volumes:
+      - database_data:/data/db
+
+  maildev:
+    image: maildev/maildev:2.0.5
+    hostname: maildev
+    ports:
+      - 1025:1025
+      - 1080:1080
+
+volumes:
+  database_data:
+
+networks:
+  default:
+    name: crm

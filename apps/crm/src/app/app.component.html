@@ -1,17 +1,17 @@
 <p-tabMenu [model]="menuItems" [activeItem]="activeItem">
-	<ng-template pTemplate="item" let-item let-i="index">
-		<div style="position: relative; text-align: center; min-width: 8em;">
-			<div
-				class="ui-menuitem-icon"
-				[ngClass]="item.icon"
-				*ngIf="item.icon"
-				style="font-size: 2em; margin-right: 0.3em;"
-			></div>
-			<div class="ui-menuitem-text">
-				{{ item.label }}
-			</div>
-		</div>
-	</ng-template>
+  <ng-template pTemplate="item" let-item let-i="index">
+    <div style="position: relative; text-align: center; min-width: 8em">
+      <div
+        class="ui-menuitem-icon"
+        [ngClass]="item.icon"
+        *ngIf="item.icon"
+        style="font-size: 2em; margin-right: 0.3em"
+      ></div>
+      <div class="ui-menuitem-text">
+        {{ item.label }}
+      </div>
+    </div>
+  </ng-template>
 </p-tabMenu>
 
 <router-outlet></router-outlet>

@@ -1,238 +1,178 @@
 {
-	"version": 1,
-	"projects": {
-		"crm": {
-			"projectType": "application",
-			"schematics": {
-				"@nrwl/angular:component": {
-					"style": "scss"
-				},
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
-			},
-			"root": "apps/crm",
-			"sourceRoot": "apps/crm/src",
-			"prefix": "crm",
-			"architect": {
-				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
-					"options": {
-						"outputPath": "dist/apps/crm",
-						"index": "apps/crm/src/index.html",
-						"main": "apps/crm/src/main.ts",
-						"polyfills": "apps/crm/src/polyfills.ts",
-						"tsConfig": "apps/crm/tsconfig.app.json",
-						"aot": true,
-						"assets": [
-							"apps/crm/src/favicon.ico",
-							"apps/crm/src/assets"
-						],
-						"styles": [
-							"apps/crm/src/styles.scss",
-							"node_modules/primeng/resources/primeng.css",
-							"node_modules/primeng/resources/themes/nova/theme.css",
-							"node_modules/primeflex/primeflex.css",
-							"node_modules/primeicons/primeicons.css"
-						],
-						"scripts": []
-					},
-					"configurations": {
-						"production": {
-							"fileReplacements": [
-								{
-									"replace": "apps/crm/src/environments/environment.ts",
-									"with": "apps/crm/src/environments/environment.prod.ts"
-								}
-							],
-							"optimization": true,
-							"outputHashing": "all",
-							"sourceMap": false,
-							"extractCss": true,
-							"namedChunks": false,
-							"extractLicenses": true,
-							"vendorChunk": false,
-							"buildOptimizer": true,
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "2mb",
-									"maximumError": "5mb"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "6kb",
-									"maximumError": "10kb"
-								}
-							]
-						}
-					}
-				},
-				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
-					"options": {
-						"browserTarget": "crm:build",
-						"proxyConfig": "apps/crm/proxy.conf.json"
-					},
-					"configurations": {
-						"production": {
-							"browserTarget": "crm:build:production"
-						}
-					}
-				},
-				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n",
-					"options": {
-						"browserTarget": "crm:build"
-					}
-				},
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": [
-							"apps/crm/tsconfig.app.json",
-							"apps/crm/tsconfig.spec.json"
-						],
-						"exclude": ["**/node_modules/**", "!apps/crm/**/*"]
-					}
-				},
-				"test": {
-					"builder": "@nrwl/jest:jest",
-					"options": {
-						"jestConfig": "apps/crm/jest.config.js",
-						"tsConfig": "apps/crm/tsconfig.spec.json",
-						"passWithNoTests": true,
-						"setupFile": "apps/crm/src/test-setup.ts"
-					}
-				}
-			}
-		},
-		"crm-e2e": {
-			"root": "apps/crm-e2e",
-			"sourceRoot": "apps/crm-e2e/src",
-			"projectType": "application",
-			"architect": {
-				"e2e": {
-					"builder": "@nrwl/cypress:cypress",
-					"options": {
-						"cypressConfig": "apps/crm-e2e/cypress.json",
-						"tsConfig": "apps/crm-e2e/tsconfig.e2e.json",
-						"devServerTarget": "crm:serve"
-					},
-					"configurations": {
-						"production": {
-							"devServerTarget": "crm:serve:production"
-						}
-					}
-				},
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": ["apps/crm-e2e/tsconfig.e2e.json"],
-						"exclude": ["**/node_modules/**", "!apps/crm-e2e/**/*"]
-					}
-				}
-			}
-		},
-		"api": {
-			"root": "apps/api",
-			"sourceRoot": "apps/api/src",
-			"projectType": "application",
-			"prefix": "api",
-			"schematics": {},
-			"architect": {
-				"build": {
-					"builder": "@nrwl/node:build",
-					"options": {
-						"outputPath": "dist/apps/api",
-						"main": "apps/api/src/main.ts",
-						"tsConfig": "apps/api/tsconfig.app.json",
-						"assets": ["apps/api/src/assets"]
-					},
-					"configurations": {
-						"production": {
-							"optimization": true,
-							"extractLicenses": true,
-							"inspect": false,
-							"fileReplacements": [
-								{
-									"replace": "apps/api/src/environments/environment.ts",
-									"with": "apps/api/src/environments/environment.prod.ts"
-								}
-							]
-						}
-					}
-				},
-				"serve": {
-					"builder": "@nrwl/node:execute",
-					"options": {
-						"buildTarget": "api:build"
-					}
-				},
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": [
-							"apps/api/tsconfig.app.json",
-							"apps/api/tsconfig.spec.json"
-						],
-						"exclude": ["**/node_modules/**", "!apps/api/**/*"]
-					}
-				},
-				"test": {
-					"builder": "@nrwl/jest:jest",
-					"options": {
-						"jestConfig": "apps/api/jest.config.js",
-						"tsConfig": "apps/api/tsconfig.spec.json",
-						"passWithNoTests": true
-					}
-				}
-			}
-		},
-		"api-interfaces": {
-			"root": "libs/api-interfaces",
-			"sourceRoot": "libs/api-interfaces/src",
-			"projectType": "library",
-			"schematics": {},
-			"architect": {
-				"lint": {
-					"builder": "@angular-devkit/build-angular:tslint",
-					"options": {
-						"tsConfig": [
-							"libs/api-interfaces/tsconfig.lib.json",
-							"libs/api-interfaces/tsconfig.spec.json"
-						],
-						"exclude": [
-							"**/node_modules/**",
-							"!libs/api-interfaces/**/*"
-						]
-					}
-				},
-				"test": {
-					"builder": "@nrwl/jest:jest",
-					"options": {
-						"jestConfig": "libs/api-interfaces/jest.config.js",
-						"tsConfig": "libs/api-interfaces/tsconfig.spec.json",
-						"passWithNoTests": true
-					}
-				}
-			}
-		}
-	},
-	"cli": {
-		"defaultCollection": "@nrwl/angular"
-	},
-	"schematics": {
-		"@nrwl/angular:application": {
-			"unitTestRunner": "jest",
-			"e2eTestRunner": "cypress"
-		},
-		"@nrwl/angular:library": {
-			"unitTestRunner": "jest"
-		},
-		"@nrwl/schematics:component": {
-			"styleext": "scss"
-		}
-	},
-	"defaultProject": "crm"
+  "version": 1,
+  "projects": {
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "prefix": "api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/webpack:webpack",
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"],
+            "target": "node",
+            "compiler": "tsc"
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:node",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/api/jest.config.ts",
+            "tsConfig": "apps/api/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-interfaces": {
+      "root": "libs/api-interfaces",
+      "sourceRoot": "libs/api-interfaces/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api-interfaces/jest.config.ts",
+            "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "crm": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/crm",
+      "sourceRoot": "apps/crm/src",
+      "prefix": "crm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/crm",
+            "index": "apps/crm/src/index.html",
+            "main": "apps/crm/src/main.ts",
+            "polyfills": "apps/crm/src/polyfills.ts",
+            "tsConfig": "apps/crm/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/crm/src/favicon.ico", "apps/crm/src/assets"],
+            "styles": [
+              "apps/crm/src/styles.scss",
+              "node_modules/primeng/resources/primeng.css",
+              "node_modules/primeng/resources/themes/nova/theme.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/primeicons/primeicons.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/crm/src/environments/environment.ts",
+                  "with": "apps/crm/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "crm:build",
+            "proxyConfig": "apps/crm/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "crm:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "crm:build"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/crm/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "crm-e2e": {
+      "root": "apps/crm-e2e",
+      "sourceRoot": "apps/crm-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/crm-e2e/cypress.json",
+            "tsConfig": "apps/crm-e2e/tsconfig.e2e.json",
+            "devServerTarget": "crm:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "crm:serve:production"
+            }
+          }
+        }
+      }
+    }
+  }
 }

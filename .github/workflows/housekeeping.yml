@@ -2,11 +2,11 @@
 
 name: Cleanup old branches
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   push:
     branches:
-      - master
+      - main
       - develop
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -17,12 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Run delete-old-branches-action
         uses: beatlabs/delete-old-branches-action@v0.0.1
         with:
           repo_token: ${{ github.token }}
-          date: '3 months ago'
+          date: '1 months ago'
           dry_run: true
           delete_tags: true
           minimum_tags: 5

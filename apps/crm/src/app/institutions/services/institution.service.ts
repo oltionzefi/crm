@@ -4,16 +4,16 @@ import { Observable } from 'rxjs';
 import { Institution } from '@crm/api-interfaces';
 
 @Injectable({
-	providedIn: 'root',
+  providedIn: 'root',
 })
 export class InstitutionService {
-	constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
-	getAll(): Observable<Institution[]> {
-		return this.http.get<Institution[]>('/api/institutions');
-	}
+  getAll(): Observable<Institution[]> {
+    return this.http.get<Institution[]>('/api/institutions');
+  }
 
-	create(institution: Institution): Observable<Institution> {
-		return this.http.post<Institution>('/api/institutions', institution);
-	}
+  create(institution: Institution): Observable<Institution> {
+    return this.http.post<Institution>('/api/institutions', institution);
+  }
 }

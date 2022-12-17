@@ -4,18 +4,18 @@ import { ListComponent } from './list/list.component';
 import { CreateComponent } from './create/create.component';
 
 const routes: Routes = [
-	{
-		path: '',
-		component: ListComponent,
-	},
-	{
-		path: 'create',
-		component: CreateComponent,
-	},
+  {
+    path: '',
+    component: ListComponent,
+  },
+  {
+    path: 'create',
+    component: CreateComponent,
+  },
 ];
 
 @NgModule({
-	imports: [RouterModule.forChild(routes)],
-	exports: [RouterModule],
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
 export class NoteRoutingModule {}

@@ -4,16 +4,16 @@ import { Observable } from 'rxjs';
 import { Contact } from '@crm/api-interfaces';
 
 @Injectable({
-	providedIn: 'root',
+  providedIn: 'root',
 })
 export class ContactService {
-	constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
-	getAll(): Observable<Contact[]> {
-		return this.http.get<Contact[]>('/api/contacts');
-	}
+  getAll(): Observable<Contact[]> {
+    return this.http.get<Contact[]>('/api/contacts');
+  }
 
-	create(contact: Contact): Observable<Contact> {
-		return this.http.post<Contact>('/api/contacts', contact);
-	}
+  create(contact: Contact): Observable<Contact> {
+    return this.http.post<Contact>('/api/contacts', contact);
+  }
 }

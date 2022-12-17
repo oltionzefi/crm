@@ -1,156 +1,156 @@
 :host ::ng-deep .ui-table-notes {
-	margin-top: 20px;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-		0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  margin-top: 20px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12);
 
-	.ui-multiselect-representative-option {
-		display: inline-block;
-		vertical-align: middle;
+  .ui-multiselect-representative-option {
+    display: inline-block;
+    vertical-align: middle;
 
-		img {
-			vertical-align: middle;
-			width: 24px;
-		}
+    img {
+      vertical-align: middle;
+      width: 24px;
+    }
 
-		span {
-			margin-top: 0.125em;
-			vertical-align: middle;
-			margin-left: 0.5em;
-		}
-	}
+    span {
+      margin-top: 0.125em;
+      vertical-align: middle;
+      margin-left: 0.5em;
+    }
+  }
 
-	.ui-paginator {
-		.ui-dropdown {
-			float: left;
-		}
+  .ui-paginator {
+    .ui-dropdown {
+      float: left;
+    }
 
-		.ui-paginator-current {
-			float: right;
-		}
-	}
+    .ui-paginator-current {
+      float: right;
+    }
+  }
 
-	.ui-progressbar {
-		height: 8px;
-		background-color: #d8dadc;
+  .ui-progressbar {
+    height: 8px;
+    background-color: #d8dadc;
 
-		.ui-progressbar-value {
-			background-color: #00acad;
-		}
-	}
+    .ui-progressbar-value {
+      background-color: #00acad;
+    }
+  }
 
-	.ui-column-filter {
-		display: block;
+  .ui-column-filter {
+    display: block;
 
-		input {
-			width: 100%;
-		}
-	}
+    input {
+      width: 100%;
+    }
+  }
 
-	.ui-table-globalfilter-container {
-		float: right;
+  .ui-table-globalfilter-container {
+    float: right;
 
-		input {
-			width: 200px;
-		}
-	}
+    input {
+      width: 200px;
+    }
+  }
 
-	.ui-table-caption {
-		border: 0 none;
-		padding: 12px;
-		text-align: left;
-		font-size: 20px;
-	}
+  .ui-table-caption {
+    border: 0 none;
+    padding: 12px;
+    text-align: left;
+    font-size: 20px;
+  }
 
-	.ui-paginator {
-		border: 0 none;
-		padding: 1em;
-	}
+  .ui-paginator {
+    border: 0 none;
+    padding: 1em;
+  }
 
-	.ui-table-thead > tr > th {
-		border: 0 none;
-		text-align: left;
+  .ui-table-thead > tr > th {
+    border: 0 none;
+    text-align: left;
 
-		&.ui-filter-column {
-			border-top: 1px solid #c8c8c8;
-		}
+    &.ui-filter-column {
+      border-top: 1px solid #c8c8c8;
+    }
 
-		&:first-child {
-			width: 5em;
-			text-align: center;
-		}
+    &:first-child {
+      width: 5em;
+      text-align: center;
+    }
 
-		// &:last-child {
-		// 	width: 8em;
-		// 	text-align: center;
-		// }
-	}
+    // &:last-child {
+    // 	width: 8em;
+    // 	text-align: center;
+    // }
+  }
 
-	.ui-table-tbody > tr > td {
-		border: 0 none;
-		cursor: auto;
+  .ui-table-tbody > tr > td {
+    border: 0 none;
+    cursor: auto;
 
-		&:first-child {
-			width: 3em;
-			text-align: center;
-		}
+    &:first-child {
+      width: 3em;
+      text-align: center;
+    }
 
-		// &:last-child {
-		// 	width: 8em;
-		// 	text-align: center;
-		// }
-	}
+    // &:last-child {
+    // 	width: 8em;
+    // 	text-align: center;
+    // }
+  }
 
-	.ui-dropdown-label:not(.ui-placeholder) {
-		text-transform: uppercase;
-	}
+  .ui-dropdown-label:not(.ui-placeholder) {
+    text-transform: uppercase;
+  }
 
-	.ui-table-tbody > tr > td .ui-column-title {
-		display: none;
-	}
+  .ui-table-tbody > tr > td .ui-column-title {
+    display: none;
+  }
 }
 
 :host ::ng-deep .ui-toolbar {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 :host ::ng-deep button {
-	margin-right: 0.25em;
+  margin-right: 0.25em;
 }
 
 :host ::ng-deep .ui-splitbutton {
-	margin-left: 0.25em;
+  margin-left: 0.25em;
 }
 
 :host ::ng-deep .ui-splitbutton button {
-	margin-right: 0;
+  margin-right: 0;
 }
 
 /* Responsive */
 @media screen and (max-width: 64em) {
-	:host ::ng-deep .ui-table {
-		&.ui-table-customers {
-			.ui-table-thead > tr > th,
-			.ui-table-tfoot > tr > td {
-				display: none !important;
-			}
+  :host ::ng-deep .ui-table {
+    &.ui-table-customers {
+      .ui-table-thead > tr > th,
+      .ui-table-tfoot > tr > td {
+        display: none !important;
+      }
 
-			.ui-table-tbody > tr > td {
-				text-align: left;
-				display: block;
-				border: 0 none !important;
-				width: 100% !important;
-				float: left;
-				clear: left;
-				border: 0 none;
+      .ui-table-tbody > tr > td {
+        text-align: left;
+        display: block;
+        border: 0 none !important;
+        width: 100% !important;
+        float: left;
+        clear: left;
+        border: 0 none;
 
-				.ui-column-title {
-					padding: 0.4em;
-					min-width: 30%;
-					display: inline-block;
-					margin: -0.4em 1em -0.4em -0.4em;
-					font-weight: bold;
-				}
-			}
-		}
-	}
+        .ui-column-title {
+          padding: 0.4em;
+          min-width: 30%;
+          display: inline-block;
+          margin: -0.4em 1em -0.4em -0.4em;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }

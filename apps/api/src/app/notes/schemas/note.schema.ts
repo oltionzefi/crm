@@ -1,15 +1,15 @@
 import * as mongoose from 'mongoose';
 
 export const NoteSchema = new mongoose.Schema({
-	url: String,
-	title: {
-		type: String,
-		required: true,
-	},
-	description: {
-		type: String,
-		required: true,
-	},
-	longDescription: String,
-	active: Boolean,
+  url: String,
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  longDescription: String,
+  active: Boolean,
 });

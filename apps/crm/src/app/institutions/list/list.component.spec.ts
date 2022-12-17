@@ -7,28 +7,23 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ListComponent', () => {
-	let component: ListComponent;
-	let fixture: ComponentFixture<ListComponent>;
+  let component: ListComponent;
+  let fixture: ComponentFixture<ListComponent>;
 
-	beforeEach(async(() => {
-		TestBed.configureTestingModule({
-			imports: [
-				RouterTestingModule.withRoutes([]),
-				ToolbarModule,
-				ButtonModule,
-				SplitButtonModule,
-			],
-			declarations: [ListComponent],
-		}).compileComponents();
-	}));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule.withRoutes([]), ToolbarModule, ButtonModule, SplitButtonModule],
+      declarations: [ListComponent],
+    }).compileComponents();
+  }));
 
-	beforeEach(() => {
-		fixture = TestBed.createComponent(ListComponent);
-		component = fixture.componentInstance;
-		fixture.detectChanges();
-	});
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-	it('should create', () => {
-		expect(component).toBeTruthy();
-	});
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

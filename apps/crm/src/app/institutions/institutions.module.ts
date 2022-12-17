@@ -8,14 +8,14 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { InstitutionService } from './services';
 
 @NgModule({
-	declarations: [ListComponent],
-	imports: [
-		CommonModule,
-		InstitutionsRoutingModule,
-		ToolbarModule,
-		ButtonModule,
-		SplitButtonModule,
-	],
-	providers: [InstitutionService],
+  declarations: [ListComponent],
+  imports: [
+    CommonModule,
+    InstitutionsRoutingModule,
+    ToolbarModule,
+    ButtonModule,
+    SplitButtonModule,
+  ],
+  providers: [InstitutionService],
 })
 export class InstitutionsModule {}

@@ -5,13 +5,13 @@ import { Task } from '@crm/api-interfaces';
 
 @Injectable()
 export class TaskService {
-	constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
-	getAll(): Observable<Task[]> {
-		return this.http.get<Task[]>('/api/tasks');
-	}
+  getAll(): Observable<Task[]> {
+    return this.http.get<Task[]>('/api/tasks');
+  }
 
-	create(task: Task): Observable<Task> {
-		return this.http.post<Task>('/api/tasks', task);
-	}
+  create(task: Task): Observable<Task> {
+    return this.http.post<Task>('/api/tasks', task);
+  }
 }
