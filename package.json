@@ -55,7 +55,7 @@
     "@nrwl/angular": "15.3.3",
     "class-validator": "^0.14.0",
     "concurrently": "7.6.0",
-    "core-js": "3.26.1",
+    "core-js": "3.27.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "6.8.0",
     "password-hash-and-salt": "^0.1.4",
