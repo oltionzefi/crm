@@ -81,7 +81,7 @@
     "@nrwl/nest": "15.3.3",
     "@nrwl/node": "15.3.3",
     "@nrwl/nx-cloud": "^15.0.2",
-    "@nrwl/workspace": "15.3.3",
+    "@nrwl/workspace": "15.4.2",
     "@storybook/angular": "6.5.14",
     "@types/jest": "29.2.4",
     "@types/jsonwebtoken": "^8.5.9",
