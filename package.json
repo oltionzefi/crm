@@ -10,7 +10,7 @@
     "ng": "ng",
     "nx": "nx",
     "start": "concurrently \"npm run start:api\" \"npm run start:crm\"",
-    "start:crm": "ng serve crm",
+    "start:crm": "ng serve crm --host 0.0.0.0",
     "start:api": "ng serve api",
     "build": "ng build",
     "test": "ng test",

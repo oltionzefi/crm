@@ -1,0 +1,32 @@
+ARG VERSION
+## First Stage
+FROM node:${VERSION}-buster-slim as development
+
+WORKDIR /code
+
+COPY ../package*.json ./
+COPY ../.env ./
+COPY ../.prettierrc ./
+COPY apps/crm/ ./
+
+RUN npm set unsafe-perm true
+RUN npm ci --lockfile-version 3 --legacy-peer-deps
+
+# ----
+## Second stage
+FROM node:${VERSION}-buster-slim as build
+
+ENV NODE_ENV production
+
+WORKDIR /code
+
+COPY --from=development /code ./
+
+RUN npm run build
+
+# ----
+## Thirds Stage
+FROM nginx:1.23.0-alpine
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /code/dist/web /usr/share/nginx/html

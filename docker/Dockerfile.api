@@ -1,0 +1,63 @@
+ARG VERSION
+ARG BASEIMAGE=node:${VERSION}-buster-slim
+## First Stage
+FROM ${BASEIMAGE} as development
+
+WORKDIR /code
+
+COPY ../package*.json ./
+COPY ../nx*.json ./
+COPY ../.env ./
+COPY ../.prettierrc ./
+COPY apps/api/ ./
+RUN npm ci --lockfile-version 3 --legacy-peer-deps
+
+RUN apt-get update; \
+    apt-get install --no-install-recommends --no-install-suggests -q -y procps;
+RUN apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
+
+# ----
+## Second Stage
+FROM ${BASEIMAGE} as build
+
+COPY ../package*.json ./
+COPY ../nx*.json ./
+COPY ../.env ./
+COPY ../.prettierrc ./
+COPY apps/api/ ./
+
+RUN npm ci --lockfile-version 3 --legacy-peer-deps
+RUN npm run build
+
+# ----
+
+## Third stage
+FROM ${BASEIMAGE} as production
+
+WORKDIR /code
+
+COPY --from=development /code/package*.json ./
+
+RUN npm ci --omit=dev --lockfile-version 3 --legacy-peer-deps
+
+# ----
+
+## Fourth Stage // hide tokens
+FROM ${BASEIMAGE}
+
+## Needed for install 'dumb-init', check https://github.com/Yelp/dumb-init
+RUN apt-get update && apt-get install -y ca-certificates wget; \
+    wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_x86_64; \
+    chmod +x /usr/local/bin/dumb-init; \ 
+    apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false;
+
+ENV NODE_ENV production
+
+WORKDIR /code
+
+COPY --from=development /code/dmn ./dmn
+COPY --from=production /code/node_modules ./node_modules
+COPY --from=development /code/.env ./
+COPY --from=development /code/dist ./dist
+
+CMD ["dumb-init", "node", "dist/main.js"]

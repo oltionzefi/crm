@@ -3,6 +3,8 @@
  * This is only a minimal backend to get started.
  **/
 
+import { Logger } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app/app.module';
@@ -11,6 +13,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
+
+  const configService = app.select(ConfigModule).get(ConfigService);
 
   const options = new DocumentBuilder()
     .setTitle('CRM API')
@@ -26,10 +30,11 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup(globalPrefix, app, document);
 
-  const port = process.env.port || 3333;
-  await app.listen(port, () => {
-    console.log('Listening at http://localhost:' + port + '/' + globalPrefix);
-  });
+  const port = configService.get<number>('API_HTTP_PORT') || 3000;
+  const host = configService.get<string>('API_HTTP_HOST') as string;
+  app.listen(port, host);
+
+  Logger.debug(`Pricing Microservice running on: ${host}:${port}`);
 }
 
 bootstrap();
