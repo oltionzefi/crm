@@ -1,7 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { NoteService } from './note.service';
+
 import { Note } from '@crm/api-interfaces';
+import { NoteService } from './note.service';
 
 describe('NoteService', () => {
   let service: NoteService;

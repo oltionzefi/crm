@@ -1,10 +1,11 @@
 import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
-import { NoteService } from '../services';
-import { Note } from '@crm/api-interfaces';
 import { MenuItem } from 'primeng/api';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+
+import { Note } from '@crm/api-interfaces';
+import { NoteService } from '../services';
 
 @Component({
   selector: 'crm-list',

@@ -1,4 +1,5 @@
 import { Observable, of } from 'rxjs';
+
 import { Note } from '@crm/api-interfaces';
 
 export const notes: Note[] = [

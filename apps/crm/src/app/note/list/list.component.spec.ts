@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ListComponent } from './list.component';
-import { NoteService } from '../services';
-import { NoteServiceMock } from '../mocks';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TableModule } from 'primeng/table';
+
+import { ListComponent } from './list.component';
+import { NoteService } from '../services';
+import { NoteServiceMock } from '../mocks';
 import { ActivatedRouteMock } from '../../mocks';
 
 describe('ListComponent', () => {
