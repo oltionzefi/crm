@@ -6,10 +6,14 @@ FROM ${BASEIMAGE} as development
 WORKDIR /code
 
 COPY ../package*.json ./
-COPY ../nx*.json ./
+COPY ../nx.json ./
 COPY ../.env ./
+COPY ../jest* ./
+COPY ../ts*.json ./
 COPY ../.prettierrc ./
-COPY apps/api/ ./
+COPY tools/ ./tools
+COPY libs/ ./libs
+COPY apps/api/ ./apps/api
 RUN npm ci --lockfile-version 3 --legacy-peer-deps
 
 RUN apt-get update; \
@@ -20,14 +24,11 @@ RUN apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 ## Second Stage
 FROM ${BASEIMAGE} as build
 
-COPY ../package*.json ./
-COPY ../nx*.json ./
-COPY ../.env ./
-COPY ../.prettierrc ./
-COPY apps/api/ ./
+WORKDIR /code
 
-RUN npm ci --lockfile-version 3 --legacy-peer-deps
-RUN npm run build
+COPY --from=development /code ./
+
+RUN npm run build:api
 
 # ----
 
@@ -55,9 +56,8 @@ ENV NODE_ENV production
 
 WORKDIR /code
 
-COPY --from=development /code/dmn ./dmn
 COPY --from=production /code/node_modules ./node_modules
 COPY --from=development /code/.env ./
-COPY --from=development /code/dist ./dist
+COPY --from=build /code/dist/apps/api ./dist
 
 CMD ["dumb-init", "node", "dist/main.js"]

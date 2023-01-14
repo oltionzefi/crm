@@ -37,5 +37,5 @@
 - [ ] Send mail to contact when new note is added for him
 - [ ] Upload functionality of contacts from .txt
 - [ ] Upload functionality of contacts from .csv
-- [ ] Create production docker compose file
-- [ ] Check Production API & Frontend with docker
+- [x] Create production docker compose file
+- [x] Check Production API & Frontend with docker
