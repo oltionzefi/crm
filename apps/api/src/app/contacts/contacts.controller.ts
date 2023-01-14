@@ -53,9 +53,9 @@ export class ContactsController {
     return this.contactsRepository.updateContact(contactId, changes);
   }
 
-  @Delete(':contactId')
+  @Delete()
   @UseGuards(AuthGuard)
-  async deleteEntity(@Param('contactId') contactId: string) {
-    return this.contactsRepository.deleteContact(contactId);
+  async deleteEntity(@Body() contacts: Contact[]) {
+    return this.contactsRepository.deleteBulk(contacts);
   }
 }

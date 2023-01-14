@@ -50,9 +50,9 @@ export class TasksController {
     return this.tasksRepository.updateTask(taskId, changes);
   }
 
-  @Delete(':taskId')
+  @Delete()
   @UseGuards(AuthGuard)
-  async deleteEntity(@Param('taskId') taskId: string) {
-    return this.tasksRepository.deleteTask(taskId);
+  async deleteEntity(@Body() tasks: Task[]) {
+    return this.tasksRepository.deleteBulk(tasks);
   }
 }

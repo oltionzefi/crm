@@ -14,4 +14,8 @@ export class TaskService {
   create(task: Task): Observable<Task> {
     return this.http.post<Task>('/api/tasks', task);
   }
+
+  delete(tasks: Task[]) {
+    return this.http.delete('/api/tasks', { body: tasks });
+  }
 }

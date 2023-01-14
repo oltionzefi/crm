@@ -22,18 +22,20 @@
 - [x] Buik delete contacts from list
 - [ ] Create task view
 - [ ] Create task API endpoint
-- [ ] Table list of tasks
-- [ ] Buik delete tasks from list
+- [x] Table list of tasks
+- [x] Buik delete tasks from list
 - [ ] Upload functionality of institutions from .txt
 - [ ] Upload functionality of institutions from .csv
 - [ ] Link contacts with instutitions
 - [ ] Link tasks with contacts
 - [ ] Add notes to contacts API
 - [ ] Show notes of contact in view
-- [ ] Dockerize API & Frontend
-- [ ] Execute project with docker compose
-- [ ] Add maildev to project
+- [x] Dockerize API & Frontend
+- [x] Execute project with docker compose
+- [x] Add maildev to project
 - [ ] Send mail to contact when new task is added for him
 - [ ] Send mail to contact when new note is added for him
 - [ ] Upload functionality of contacts from .txt
 - [ ] Upload functionality of contacts from .csv
+- [ ] Create production docker compose file
+- [ ] Check Production API & Frontend with docker

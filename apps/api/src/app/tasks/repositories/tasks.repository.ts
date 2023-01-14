@@ -23,8 +23,9 @@ export class TasksRepository {
     });
   }
 
-  deleteTask(taskId: string) {
-    return this.taskModel.deleteOne({ _id: taskId });
+  deleteBulk(tasks: Task[]) {
+    const ids = tasks.map((task: Task) => task._id);
+    return this.taskModel.deleteMany({ _id: ids });
   }
 
   async addTask(task: Partial<Task>): Promise<Task> {

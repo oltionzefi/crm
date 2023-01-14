@@ -23,8 +23,9 @@ export class ContactsRepository {
     });
   }
 
-  deleteContact(contactId: string) {
-    return this.contactModel.deleteOne({ _id: contactId });
+  deleteBulk(contacts: Contact[]) {
+    const ids = contacts.map((contact: Contact) => contact._id);
+    return this.contactModel.deleteMany({ _id: ids });
   }
 
   async addContact(contact: Partial<Contact>): Promise<Contact> {

@@ -1,31 +1,31 @@
 import { Observable, of } from 'rxjs';
 
-import { Task } from '@crm/api-interfaces';
+import { Contact } from '@crm/api-interfaces';
 
-export const tasks: Task[] = [
+export const contacts: Contact[] = [
   {
     _id: 'abc',
-    title: 'Finish Math Homework',
-    description: 'All homework given by teacher in Math should be done',
+    firstname: 'Alex',
+    lastname: 'Mustermann',
     active: true,
-    status: 'open',
+    email: 'alex.mustermann@mail.com',
   },
   {
     _id: 'cde',
-    title: 'Clean code a bit ',
-    description: 'Take time to clean project a bit.',
+    firstname: 'John',
+    lastname: 'Doe',
     active: true,
-    status: 'open',
+    email: 'john.doe@mail.com',
   },
 ];
 
 export const ContactServiceMock = {
-  getAll(): Observable<Task[]> {
-    return of(tasks);
+  getAll(): Observable<Contact[]> {
+    return of(contacts);
   },
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  create(task: Task): Observable<Task> {
-    return of(tasks[0]);
+  create(task: Contact): Observable<Contact> {
+    return of(contacts[0]);
   },
 };
