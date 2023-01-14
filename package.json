@@ -9,7 +9,7 @@
   "scripts": {
     "nx": "nx",
     "start": "concurrently \"npm run start:api\" \"npm run start:crm\"",
-    "start:crm": "nx run crm:serve --configuration=development --host 0.0.0.0 --port 4200",
+    "start:crm": "nx run crm:serve --configuration=development --host 0.0.0.0",
     "start:api": "nx run api:serve --verbose",
     "build": "nx build",
     "test": "npm run test:api && npm run test:crm",

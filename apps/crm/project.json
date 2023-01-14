@@ -63,7 +63,8 @@
       },
       "defaultConfiguration": "development",
       "options": {
-        "port": 4198
+        "port": 4200,
+        "proxyConfig": "apps/crm/proxy.conf.json"
       }
     },
     "extract-i18n": {

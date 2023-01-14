@@ -42,10 +42,12 @@ export class ListComponent implements OnInit {
   deleteNotes(): void {
     this.notesService.delete(this.selectedNotes).subscribe(() => {
       this.updateNotes();
+      this.selectedNotes = [];
     });
   }
 
   private updateNotes(): void {
     this.notes$ = this.notesService.getAll();
+    this.loading = false;
   }
 }
