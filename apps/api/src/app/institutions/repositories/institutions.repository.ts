@@ -26,8 +26,9 @@ export class InstitutionsRepository {
     });
   }
 
-  deleteInstitution(institutionId: string) {
-    return this.institutionModel.deleteOne({ _id: institutionId });
+  deleteBulk(institutions: Institution[]) {
+    const ids = institutions.map((institution: Institution) => institution._id);
+    return this.institutionModel.deleteMany({ _id: ids });
   }
 
   async addInstitution(institution: Partial<Institution>): Promise<Institution> {

@@ -53,9 +53,9 @@ export class InstitutionsController {
     return this.institutionsRepository.updateInstitution(institutionId, changes);
   }
 
-  @Delete(':institutionId')
+  @Delete()
   @UseGuards(AuthGuard)
-  async deleteEntity(@Param('institutionId') institutionId: string) {
-    return this.institutionsRepository.deleteInstitution(institutionId);
+  async deleteEntity(@Body() institutions: Institution[]) {
+    return this.institutionsRepository.deleteBulk(institutions);
   }
 }

@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
+import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { InstitutionService } from './institution.service';
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('InstitutionService', () => {
   let service: InstitutionService;

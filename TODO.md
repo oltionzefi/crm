@@ -14,8 +14,8 @@
 - [ ] Remove from list view of institutions buttons for saving/closing
 - [ ] Create institution view
 - [ ] Create institution API endpoint
-- [ ] Table list of institutions
-- [ ] Buik delete institutions from list
+- [x] Table list of institutions
+- [x] Buik delete institutions from list
 - [ ] Create contact view
 - [ ] Create contact API endpoint
 - [ ] Table list of contacts

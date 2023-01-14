@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ListComponent } from './list.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import { ListComponent } from './list.component';
 
 describe('ListComponent', () => {
   let component: ListComponent;

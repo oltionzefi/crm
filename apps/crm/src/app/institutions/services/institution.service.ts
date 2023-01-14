@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { Institution } from '@crm/api-interfaces';
 
 @Injectable({
@@ -15,5 +16,9 @@ export class InstitutionService {
 
   create(institution: Institution): Observable<Institution> {
     return this.http.post<Institution>('/api/institutions', institution);
+  }
+
+  delete(institutions: Institution[]) {
+    return this.http.delete('/api/institutions', { body: institutions });
   }
 }
