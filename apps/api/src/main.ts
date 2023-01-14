@@ -34,7 +34,7 @@ async function bootstrap() {
   const host = configService.get<string>('API_HTTP_HOST') as string;
   app.listen(port, host);
 
-  Logger.debug(`Pricing Microservice running on: ${host}:${port}`);
+  Logger.debug(`API Microservice running on: ${host}:${port}`);
 }
 
 bootstrap();

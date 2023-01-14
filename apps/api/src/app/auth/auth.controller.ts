@@ -20,7 +20,7 @@ export class AuthController {
     }
 
     return new Promise((resolve, reject) => {
-      password.default(plaintextPassword).verifyAgainst(user.passwordHash, (err, verified) => {
+      password(plaintextPassword).verifyAgainst(user.passwordHash, (err, verified) => {
         if (!verified) {
           reject(new UnauthorizedException());
         }

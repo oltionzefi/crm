@@ -13,13 +13,13 @@ describe('NoteFormGroup', () => {
   });
 
   it('should have title & description with empty values', () => {
-    expect(formGroup.get('title').value).toBe('');
-    expect(formGroup.get('description').value).toBe('');
+    expect(formGroup.get('title')?.value).toBe('');
+    expect(formGroup.get('description')?.value).toBe('');
   });
 
   it('should be valid only after filling the values', () => {
-    formGroup.get('title').setValue('No, this can be');
-    formGroup.get('description').setValue('This is nothing!');
+    formGroup.get('title')?.setValue('No, this can be');
+    formGroup.get('description')?.setValue('This is nothing!');
     expect(formGroup.valid).toBeTruthy();
   });
 
@@ -33,8 +33,8 @@ describe('NoteFormGroup', () => {
     });
 
     it('should have title & description with value', () => {
-      expect(formGroup.get('title').value).toBe('Hey dude');
-      expect(formGroup.get('description').value).toBe('No dude is allowed here');
+      expect(formGroup.get('title')?.value).toBe('Hey dude');
+      expect(formGroup.get('description')?.value).toBe('No dude is allowed here');
     });
   });
 });

@@ -20,6 +20,7 @@ export class ListComponent implements OnInit {
   selectedNotes: Note[];
   splitButtons: MenuItem[];
 
+  loading = true;
   @ViewChild('dt') table: Table;
 
   get showDelete(): boolean {

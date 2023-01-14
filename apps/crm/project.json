@@ -1,0 +1,92 @@
+{
+  "name": "crm",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/crm/src",
+  "prefix": "crm",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/crm",
+        "index": "apps/crm/src/index.html",
+        "main": "apps/crm/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/crm/tsconfig.app.json",
+        "assets": ["apps/crm/src/favicon.ico", "apps/crm/src/assets"],
+        "styles": [
+          "apps/crm/src/styles.scss",
+          "node_modules/primeng/resources/primeng.css",
+          "node_modules/primeng/resources/themes/nova/theme.css",
+          "node_modules/primeflex/primeflex.css",
+          "node_modules/primeicons/primeicons.css"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "crm:build:production"
+        },
+        "development": {
+          "browserTarget": "crm:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4198
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "crm:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/crm/**/*.ts", "apps/crm/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/crm/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

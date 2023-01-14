@@ -11,10 +11,12 @@ import { Observable, Observer } from 'rxjs';
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private requests: HttpRequest<any>[] = [];
 
   constructor(private readonly loadingService: LoadingService) {}
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   removeRequest(req: HttpRequest<any>): void {
     const i = this.requests.indexOf(req);
     if (i >= 0) {
@@ -24,6 +26,7 @@ export class LoaderInterceptor implements HttpInterceptor {
     this.loadingService.isLoading.next(this.requests.length > 0);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.requests.push(req);
 
@@ -31,6 +34,7 @@ export class LoaderInterceptor implements HttpInterceptor {
 
     this.loadingService.isLoading.next(true);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return new Observable((observer: Observer<any>) => {
       const subscription = next.handle(req).subscribe(
         event => {

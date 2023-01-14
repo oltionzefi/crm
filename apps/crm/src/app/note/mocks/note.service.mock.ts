@@ -19,6 +19,7 @@ export const NoteServiceMock = {
     return of(notes);
   },
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   create(note: Note): Observable<Note> {
     return of(notes[0]);
   },

@@ -3,6 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'contacts',
+  },
+  {
     path: 'notes',
     loadChildren: () => import('./note/note.module').then(m => m.NoteModule),
   },

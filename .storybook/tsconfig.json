@@ -5,8 +5,7 @@
     "../apps/**/*-e2e",
     "../apps/**/*.spec.ts",
     "../libs/test.ts",
-    "../libs/**/*.spec.ts",
-    "../projects/**/*.spec.ts"
+    "../libs/**/*.spec.ts"
   ],
-  "include": ["../apps/**/*", "../libs/**/*", "../projects/**/*"]
+  "include": ["../apps/**/*", "../libs/**/*"]
 }

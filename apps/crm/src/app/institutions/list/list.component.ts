@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -6,10 +6,6 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
   splitButtons: MenuItem[];
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }
