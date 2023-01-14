@@ -18,8 +18,8 @@
 - [x] Buik delete institutions from list
 - [ ] Create contact view
 - [ ] Create contact API endpoint
-- [ ] Table list of contacts
-- [ ] Buik delete contacts from list
+- [x] Table list of contacts
+- [x] Buik delete contacts from list
 - [ ] Create task view
 - [ ] Create task API endpoint
 - [ ] Table list of tasks

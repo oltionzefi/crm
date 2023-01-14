@@ -9,16 +9,61 @@
       class="ui-button-success"
     ></button>
 
-    <p-splitButton
-      label="Save"
-      icon="pi pi-check"
-      [model]="splitButtons"
-      styleClass="ui-button-warning"
-    ></p-splitButton>
-  </div>
-
-  <div class="ui-toolbar-group-right">
-    <button pButton type="button" icon="pi pi-calendar" class="ui-button-success"></button>
-    <button pButton type="button" icon="pi pi-times" class="ui-button-danger"></button>
+    <button
+      *ngIf="showDelete"
+      pButton
+      type="button"
+      label="Delete"
+      icon="pi pi-times"
+      class="bg-red-500"
+      (click)="deleteContacts()"
+    ></button>
   </div>
 </p-toolbar>
+
+<p-table
+  *ngIf="contacts$ | async as contacts"
+  #dt
+  [value]="contacts"
+  [(selection)]="selectedContacts"
+  dataKey="_id"
+  styleClass="ui-table-notes"
+  [rowHover]="true"
+  [rows]="10"
+  [showCurrentPageReport]="true"
+  [rowsPerPageOptions]="[10, 25, 50]"
+  [loading]="loading"
+  [paginator]="true"
+  currentPageReportTemplate="Showing &#123;first&#125; to &#123;last&#125; of &#123;totalRecords&#125; entries"
+  [filterDelay]="0"
+  [globalFilterFields]="['title', 'description']"
+>
+  <ng-template pTemplate="caption"> List of Contacts </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="firstname">First Name <p-sortIcon field="firstname"></p-sortIcon></th>
+      <th pSortableColumn="lastname">Last Name <p-sortIcon field="lastname"></p-sortIcon></th>
+      <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+      <th pSortableColumn="active">Active</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-contact>
+    <tr class="ui-selectable-row">
+      <td>
+        <p-tableCheckbox [value]="contact"></p-tableCheckbox>
+      </td>
+      <td>{{ contact.firstname }}</td>
+      <td>{{ contact.lastname }}</td>
+      <td>{{ contact.email }}</td>
+      <td><i class="pi" [ngClass]="contact.active ? 'pi-verified' : 'pi-minus-circle'"></i></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="8" style="text-align: left">No contacts found.</td>
+    </tr>
+  </ng-template>
+</p-table>
