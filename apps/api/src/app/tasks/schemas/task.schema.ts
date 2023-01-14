@@ -1,20 +1,52 @@
-import * as mongoose from 'mongoose';
+import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
-export const TaskSchema = new mongoose.Schema({
-  url: String,
-  title: {
+@Schema({
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+  },
+})
+export class Task extends Document {
+  @Prop({
+    type: String,
+  })
+  url?: string;
+
+  @Prop({
     type: String,
     required: true,
-  },
-  description: {
+  })
+  title: string;
+
+  @Prop({
     type: String,
     required: true,
-  },
-  longDescription: String,
-  active: Boolean,
-  dueDate: {
+  })
+  description: string;
+
+  @Prop({
+    type: String,
+  })
+  longDescription?: string;
+
+  @Prop({
+    type: Boolean,
+    default: true,
+  })
+  active: boolean;
+
+  @Prop({
     type: Date,
-    required: true,
-  },
-  status: String,
-});
+  })
+  dueDate: Date;
+
+  @Prop({
+    type: String,
+    enum: ['open', 'close', 'done'],
+    default: 'open',
+  })
+  status: string;
+}
+
+export const TaskSchema = SchemaFactory.createForClass(Task);

@@ -4,8 +4,8 @@
 
 - [x] Bulk delete notes
 - [x] Remove from list view of notes buttons for saving/closing
-- [ ] Complete fully the migration to latest releases of packages/nx
-- [ ] Add Github Action to run on push/merge all unit test
+- [x] Complete fully the migration to latest releases of packages/nx
+- [x] Add Github Action to run on push/merge all unit test
 - [ ] Merge definitions from library of interfaces with API
 - [ ] Add tooltip for action performed
 - [ ] Show when error happens

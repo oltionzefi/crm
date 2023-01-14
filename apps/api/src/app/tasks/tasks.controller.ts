@@ -10,6 +10,7 @@ import {
   BadRequestException,
   Delete,
 } from '@nestjs/common';
+
 import { AuthGuard } from '../guards';
 import { TasksRepository } from './repositories';
 import { Task } from './models';
@@ -17,22 +18,22 @@ import { Task } from './models';
 @Controller('tasks')
 @UseGuards(AuthGuard)
 export class TasksController {
-  constructor(private tasksDB: TasksRepository) {}
+  constructor(private tasksRepository: TasksRepository) {}
 
   @Post()
   @UseGuards(AuthGuard)
   async createTask(@Body() task: Task): Promise<Task> {
-    return this.tasksDB.addTask(task);
+    return this.tasksRepository.addTask(task);
   }
 
   @Get()
   async findAllTasks(): Promise<Task[]> {
-    return this.tasksDB.findAll();
+    return this.tasksRepository.findAll();
   }
 
   @Get(':taskUrl')
   async findTaskByUrl(@Param('taskUrl') taskUrl: string) {
-    const task = await this.tasksDB.findTaskByUrl(taskUrl);
+    const task = await this.tasksRepository.findTaskByUrl(taskUrl);
 
     if (!task) {
       throw new NotFoundException('Could not find task for url' + taskUrl);
@@ -46,12 +47,12 @@ export class TasksController {
       throw new BadRequestException('Can not update entity id');
     }
 
-    return this.tasksDB.updateTask(taskId, changes);
+    return this.tasksRepository.updateTask(taskId, changes);
   }
 
   @Delete(':taskId')
   @UseGuards(AuthGuard)
   async deleteEntity(@Param('taskId') taskId: string) {
-    return this.tasksDB.deleteTask(taskId);
+    return this.tasksRepository.deleteTask(taskId);
   }
 }

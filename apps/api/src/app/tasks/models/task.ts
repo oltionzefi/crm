@@ -1,4 +1,4 @@
-import { IsBoolean, IsString, IsInt, IsDate } from 'class-validator';
+import { IsBoolean, IsString, IsDate } from 'class-validator';
 import { Document } from 'mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -45,9 +45,9 @@ export class Task extends Document {
 
   @ApiProperty({
     description: 'Different statuses',
-    type: Number,
+    type: String,
     required: false,
   })
-  @IsInt()
-  status: number;
+  @IsString()
+  status: string;
 }

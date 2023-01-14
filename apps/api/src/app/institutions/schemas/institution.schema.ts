@@ -1,14 +1,34 @@
-import * as mongoose from 'mongoose';
+import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
-export const InstitutionSchema = new mongoose.Schema({
-  url: String,
-  title: {
+@Schema({
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+  },
+})
+export class Institution extends Document {
+  @Prop({
+    type: String,
+  })
+  url?: string;
+
+  @Prop({
     type: String,
     required: true,
-  },
-  description: {
+  })
+  title: string;
+
+  @Prop({
     type: String,
     required: true,
-  },
-  active: Boolean,
-});
+  })
+  description: string;
+
+  @Prop({
+    type: Boolean,
+    default: true,
+  })
+  active: boolean;
+}
+export const InstitutionSchema = SchemaFactory.createForClass(Institution);

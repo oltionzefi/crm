@@ -1,12 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+
 import { Institution } from '../models';
 
 @Injectable()
 export class InstitutionsRepository {
   constructor(
-    @InjectModel('Institution')
+    @InjectModel(Institution.name)
     private institutionModel: Model<Institution>,
   ) {}
 
