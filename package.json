@@ -85,7 +85,7 @@
     "@babel/core": "7.20.12",
     "@nestjs/schematics": "^9.0.4",
     "@nestjs/testing": "^9.2.1",
-    "@nrwl/cypress": "15.5.1",
+    "@nrwl/cypress": "15.6.3",
     "@nrwl/eslint-plugin-nx": "^15.5.1",
     "@nrwl/jest": "15.5.1",
     "@nrwl/nest": "15.5.1",
